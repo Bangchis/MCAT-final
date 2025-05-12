@@ -1,0 +1,949 @@
+QuestionId,SubjectId,Old_category,SuperCategory,CorrectAnswer
+0,3,"['Number', 'Indices, Powers and Roots']",Number Concepts,1
+1,1,['Fractions'],Arithmetic Operations,3
+2,3,"['Number', 'Negative Numbers']",Number Concepts,2
+3,3,"['Number', 'Negative Numbers']",Number Concepts,2
+4,2,"['Geometry and Measure', '2D Names and Properties of Shapes']",Geometry & Properties,3
+5,2,['Geometry and Measure'],Geometry & Properties,4
+6,1,['Basic Arithmetic'],Arithmetic Operations,2
+7,3,"['Number', 'Factors, Multiples and Primes']",Number Concepts,2
+8,3,"['Number', 'Factors, Multiples and Primes']",Number Concepts,1
+9,2,['Geometry and Measure'],Geometry & Properties,3
+10,0,"['Algebra', 'Straight Line Graphs']",Algebra & Functions,1
+11,3,"['Number', 'Negative Numbers']",Number Concepts,2
+12,2,"['Geometry and Measure', 'Angles']",Geometry & Properties,4
+13,2,['Geometry and Measure'],Geometry & Properties,1
+14,2,"['Geometry and Measure', 'Construction, Loci and Scale Drawing']",Geometry & Properties,1
+15,1,['Fractions'],Arithmetic Operations,3
+16,3,"['Number', 'Factors, Multiples and Primes']",Number Concepts,1
+17,2,['Geometry and Measure'],Geometry & Properties,4
+18,3,"['Number', 'Negative Numbers']",Number Concepts,1
+19,1,['Basic Arithmetic'],Arithmetic Operations,3
+20,2,"['Geometry and Measure', 'Symmetry']",Geometry & Properties,3
+21,1,['Fractions'],Arithmetic Operations,2
+22,3,"['Number', 'Indices, Powers and Roots']",Number Concepts,3
+23,2,['Geometry and Measure'],Geometry & Properties,3
+24,3,"['Number', 'Negative Numbers']",Number Concepts,2
+25,1,['Basic Arithmetic'],Arithmetic Operations,2
+26,2,['Geometry and Measure'],Geometry & Properties,3
+27,1,['Fractions'],Arithmetic Operations,1
+28,3,"['Number', 'Factors, Multiples and Primes']",Number Concepts,1
+29,3,"['Number', 'Negative Numbers']",Number Concepts,4
+30,0,"['Algebra', 'Factorising']",Algebra & Functions,1
+31,3,"['Number', 'Negative Numbers']",Number Concepts,3
+32,1,['Fractions'],Arithmetic Operations,1
+33,1,['Fractions'],Arithmetic Operations,1
+34,3,"['Number', 'Negative Numbers']",Number Concepts,1
+35,3,"['Number', 'Factors, Multiples and Primes']",Number Concepts,2
+36,2,['Geometry and Measure'],Geometry & Properties,3
+37,1,['Basic Arithmetic'],Arithmetic Operations,4
+38,0,['Algebra'],Algebra & Functions,4
+39,2,"['Geometry and Measure', 'Angles']",Geometry & Properties,2
+40,1,['Basic Arithmetic'],Arithmetic Operations,1
+41,2,['Geometry and Measure'],Geometry & Properties,3
+42,1,['Fractions'],Arithmetic Operations,2
+43,3,"['Number', 'Factors, Multiples and Primes']",Number Concepts,2
+44,2,"['Geometry and Measure', 'Angles']",Geometry & Properties,4
+45,3,"['Number', 'Negative Numbers']",Number Concepts,3
+46,3,"['Number', 'Negative Numbers']",Number Concepts,1
+47,2,"['Geometry and Measure', 'Angles']",Geometry & Properties,1
+48,2,['Geometry and Measure'],Geometry & Properties,3
+49,2,"['Geometry and Measure', 'Angles']",Geometry & Properties,2
+50,3,"['Number', 'Negative Numbers']",Number Concepts,2
+51,0,"['Algebra', 'Sequences']",Algebra & Functions,2
+52,3,"['Number', 'Factors, Multiples and Primes']",Number Concepts,1
+53,1,['Basic Arithmetic'],Arithmetic Operations,3
+54,0,['Algebra'],Algebra & Functions,4
+55,1,['Basic Arithmetic'],Arithmetic Operations,4
+56,2,"['Geometry and Measure', 'Angles']",Geometry & Properties,3
+57,1,['Decimals'],Arithmetic Operations,2
+58,1,['Fractions'],Arithmetic Operations,1
+59,3,"['Number', 'Factors, Multiples and Primes']",Number Concepts,2
+60,3,"['Number', 'Indices, Powers and Roots']",Number Concepts,3
+61,1,['Decimals'],Arithmetic Operations,4
+62,2,['Geometry and Measure'],Geometry & Properties,1
+63,0,['Algebra'],Algebra & Functions,4
+64,2,"['Geometry and Measure', '2D Names and Properties of Shapes']",Geometry & Properties,3
+65,3,"['Number', 'Factors, Multiples and Primes']",Number Concepts,1
+66,2,"['Geometry and Measure', 'Angles']",Geometry & Properties,1
+67,2,['Geometry and Measure'],Geometry & Properties,1
+68,3,"['Number', 'Indices, Powers and Roots']",Number Concepts,3
+69,1,['Basic Arithmetic'],Arithmetic Operations,2
+70,2,['Geometry and Measure'],Geometry & Properties,2
+71,3,"['Number', 'Negative Numbers']",Number Concepts,3
+72,1,['Basic Arithmetic'],Arithmetic Operations,1
+73,1,['Fractions'],Arithmetic Operations,3
+74,2,['Geometry and Measure'],Geometry & Properties,1
+75,3,"['Number', 'Factors, Multiples and Primes']",Number Concepts,1
+76,0,"['Algebra', 'Formula']",Algebra & Functions,2
+77,0,"['Algebra', 'Sequences']",Algebra & Functions,3
+78,2,"['Geometry and Measure', 'Symmetry']",Geometry & Properties,3
+79,3,"['Number', 'Negative Numbers']",Number Concepts,1
+80,3,"['Number', 'Negative Numbers']",Number Concepts,2
+81,1,['Fractions'],Arithmetic Operations,1
+82,0,"['Algebra', 'Writing and Simplifying Expressions']",Algebra & Functions,4
+83,2,"['Geometry and Measure', 'Angles']",Geometry & Properties,2
+84,2,"['Geometry and Measure', 'Angles']",Geometry & Properties,1
+85,2,"['Geometry and Measure', '2D Names and Properties of Shapes']",Geometry & Properties,4
+86,3,"['Number', 'Factors, Multiples and Primes']",Number Concepts,2
+87,2,['Geometry and Measure'],Geometry & Properties,4
+88,3,"['Number', 'Factors, Multiples and Primes']",Number Concepts,2
+89,2,"['Geometry and Measure', 'Angles']",Geometry & Properties,4
+90,0,"['Algebra', 'Formula']",Algebra & Functions,1
+91,0,"['Algebra', 'Writing and Simplifying Expressions']",Algebra & Functions,4
+92,1,['Basic Arithmetic'],Arithmetic Operations,1
+93,1,['Basic Arithmetic'],Arithmetic Operations,2
+94,2,"['Geometry and Measure', 'Construction, Loci and Scale Drawing']",Geometry & Properties,1
+95,2,"['Geometry and Measure', 'Construction, Loci and Scale Drawing']",Geometry & Properties,3
+96,1,['Fractions'],Arithmetic Operations,1
+97,0,"['Algebra', 'Writing and Simplifying Expressions']",Algebra & Functions,1
+98,3,"['Number', 'Factors, Multiples and Primes']",Number Concepts,2
+99,1,"['Fractions, Decimals and Percentage Equivalence']",Arithmetic Operations,2
+100,3,"['Number', 'Factors, Multiples and Primes']",Number Concepts,1
+101,3,"['Number', 'Factors, Multiples and Primes']",Number Concepts,1
+102,3,"['Number', 'Factors, Multiples and Primes']",Number Concepts,2
+103,3,"['Number', 'Negative Numbers']",Number Concepts,4
+104,3,"['Number', 'Factors, Multiples and Primes']",Number Concepts,3
+105,2,"['Geometry and Measure', 'Angles']",Geometry & Properties,1
+106,2,"['Geometry and Measure', 'Angles']",Geometry & Properties,3
+107,1,['Fractions'],Arithmetic Operations,2
+108,1,['Fractions'],Arithmetic Operations,3
+109,1,['Fractions'],Arithmetic Operations,1
+110,0,['Algebra'],Algebra & Functions,1
+111,3,"['Number', 'Negative Numbers']",Number Concepts,2
+112,1,['Fractions'],Arithmetic Operations,3
+113,1,['Fractions'],Arithmetic Operations,4
+114,1,['Fractions'],Arithmetic Operations,3
+115,1,['Fractions'],Arithmetic Operations,2
+116,2,"['Geometry and Measure', 'Angles']",Geometry & Properties,2
+117,1,['Fractions'],Arithmetic Operations,4
+118,0,['Algebra'],Algebra & Functions,4
+119,0,"['Algebra', 'Formula']",Algebra & Functions,2
+120,0,"['Algebra', 'Formula']",Algebra & Functions,1
+121,1,['Fractions'],Arithmetic Operations,4
+122,0,"['Algebra', 'Formula']",Algebra & Functions,2
+123,0,"['Algebra', 'Formula']",Algebra & Functions,2
+124,0,"['Algebra', 'Sequences']",Algebra & Functions,2
+125,2,['Geometry and Measure'],Geometry & Properties,1
+126,3,"['Number', 'Factors, Multiples and Primes']",Number Concepts,1
+127,1,['Fractions'],Arithmetic Operations,2
+128,1,['Fractions'],Arithmetic Operations,1
+129,3,"['Number', 'Factors, Multiples and Primes']",Number Concepts,3
+130,2,['Geometry and Measure'],Geometry & Properties,1
+131,1,['Fractions'],Arithmetic Operations,1
+132,2,['Geometry and Measure'],Geometry & Properties,3
+133,3,"['Number', 'Factors, Multiples and Primes']",Number Concepts,3
+134,3,"['Number', 'Negative Numbers']",Number Concepts,1
+135,2,['Geometry and Measure'],Geometry & Properties,1
+136,1,['Fractions'],Arithmetic Operations,4
+137,0,"['Algebra', 'Writing and Simplifying Expressions']",Algebra & Functions,1
+138,0,"['Algebra', 'Writing and Simplifying Expressions']",Algebra & Functions,3
+139,1,"['Fractions, Decimals and Percentage Equivalence']",Arithmetic Operations,3
+140,1,['Fractions'],Arithmetic Operations,2
+141,3,"['Number', 'Factors, Multiples and Primes']",Number Concepts,2
+142,0,"['Algebra', 'Formula']",Algebra & Functions,2
+143,3,"['Number', 'Negative Numbers']",Number Concepts,2
+144,1,['Fractions'],Arithmetic Operations,3
+145,3,"['Number', 'Negative Numbers']",Number Concepts,1
+146,2,"['Geometry and Measure', 'Construction, Loci and Scale Drawing']",Geometry & Properties,4
+147,3,"['Number', 'Indices, Powers and Roots']",Number Concepts,2
+148,0,"['Algebra', 'Formula']",Algebra & Functions,2
+149,1,['Fractions'],Arithmetic Operations,3
+150,0,"['Algebra', 'Writing and Simplifying Expressions']",Algebra & Functions,3
+151,2,['Geometry and Measure'],Geometry & Properties,2
+152,0,"['Algebra', 'Sequences']",Algebra & Functions,3
+153,1,['Fractions'],Arithmetic Operations,1
+154,3,"['Number', 'Factors, Multiples and Primes']",Number Concepts,4
+155,2,"['Geometry and Measure', 'Angles']",Geometry & Properties,4
+156,2,['Geometry and Measure'],Geometry & Properties,3
+157,3,"['Number', 'Factors, Multiples and Primes']",Number Concepts,3
+158,3,"['Number', 'Negative Numbers']",Number Concepts,3
+159,0,"['Algebra', 'Formula']",Algebra & Functions,2
+160,0,"['Algebra', 'Writing and Simplifying Expressions']",Algebra & Functions,3
+161,3,"['Number', 'Negative Numbers']",Number Concepts,1
+162,0,"['Algebra', 'Straight Line Graphs']",Algebra & Functions,3
+163,3,"['Number', 'Factors, Multiples and Primes']",Number Concepts,4
+164,1,['Fractions'],Arithmetic Operations,2
+165,3,"['Number', 'Factors, Multiples and Primes']",Number Concepts,2
+166,1,['Fractions'],Arithmetic Operations,1
+167,0,['Algebra'],Algebra & Functions,3
+168,3,"['Number', 'Factors, Multiples and Primes']",Number Concepts,4
+169,3,"['Number', 'Factors, Multiples and Primes']",Number Concepts,4
+170,0,"['Algebra', 'Writing and Simplifying Expressions']",Algebra & Functions,1
+171,2,"['Geometry and Measure', 'Angles']",Geometry & Properties,3
+172,2,['Geometry and Measure'],Geometry & Properties,2
+173,1,['Fractions'],Arithmetic Operations,4
+174,0,['Algebra'],Algebra & Functions,3
+175,1,['Fractions'],Arithmetic Operations,2
+176,2,['Geometry and Measure'],Geometry & Properties,2
+177,3,"['Number', 'Negative Numbers']",Number Concepts,2
+178,3,"['Number', 'Negative Numbers']",Number Concepts,4
+179,1,['Fractions'],Arithmetic Operations,2
+180,1,['Fractions'],Arithmetic Operations,4
+181,2,['Geometry and Measure'],Geometry & Properties,3
+182,2,['Geometry and Measure'],Geometry & Properties,3
+183,3,"['Number', 'Negative Numbers']",Number Concepts,3
+184,0,"['Algebra', 'Formula']",Algebra & Functions,1
+185,3,"['Number', 'Negative Numbers']",Number Concepts,4
+186,3,"['Number', 'Negative Numbers']",Number Concepts,2
+187,0,['Algebra'],Algebra & Functions,1
+188,3,"['Number', 'Factors, Multiples and Primes']",Number Concepts,3
+189,3,"['Number', 'Factors, Multiples and Primes']",Number Concepts,2
+190,3,"['Number', 'Factors, Multiples and Primes']",Number Concepts,2
+191,2,['Geometry and Measure'],Geometry & Properties,4
+192,1,['Fractions'],Arithmetic Operations,4
+193,0,"['Algebra', 'Factorising']",Algebra & Functions,3
+194,2,"['Geometry and Measure', 'Construction, Loci and Scale Drawing']",Geometry & Properties,2
+195,3,"['Number', 'Negative Numbers']",Number Concepts,4
+196,0,['Algebra'],Algebra & Functions,1
+197,1,['Basic Arithmetic'],Arithmetic Operations,3
+198,1,['Basic Arithmetic'],Arithmetic Operations,3
+199,3,"['Number', 'Negative Numbers']",Number Concepts,1
+200,2,['Geometry and Measure'],Geometry & Properties,1
+201,2,"['Geometry and Measure', 'Angles']",Geometry & Properties,2
+202,2,['Geometry and Measure'],Geometry & Properties,1
+203,2,['Geometry and Measure'],Geometry & Properties,1
+204,0,['Algebra'],Algebra & Functions,2
+205,2,['Geometry and Measure'],Geometry & Properties,4
+206,0,"['Algebra', 'Writing and Simplifying Expressions']",Algebra & Functions,3
+207,2,"['Geometry and Measure', 'Angles']",Geometry & Properties,3
+208,1,['Fractions'],Arithmetic Operations,3
+209,3,"['Number', 'Negative Numbers']",Number Concepts,2
+210,0,"['Algebra', 'Formula']",Algebra & Functions,1
+211,3,"['Number', 'Factors, Multiples and Primes']",Number Concepts,4
+212,1,['Basic Arithmetic'],Arithmetic Operations,4
+213,3,"['Number', 'Factors, Multiples and Primes']",Number Concepts,2
+214,2,"['Geometry and Measure', 'Angles']",Geometry & Properties,3
+215,2,['Geometry and Measure'],Geometry & Properties,2
+216,2,"['Geometry and Measure', 'Angles']",Geometry & Properties,4
+217,0,"['Algebra', 'Formula']",Algebra & Functions,1
+218,2,"['Geometry and Measure', '2D Names and Properties of Shapes']",Geometry & Properties,1
+219,3,"['Number', 'Negative Numbers']",Number Concepts,3
+220,1,"['Fractions, Decimals and Percentage Equivalence']",Arithmetic Operations,4
+221,2,['Geometry and Measure'],Geometry & Properties,3
+222,2,['Geometry and Measure'],Geometry & Properties,4
+223,3,"['Number', 'Factors, Multiples and Primes']",Number Concepts,4
+224,2,['Geometry and Measure'],Geometry & Properties,4
+225,3,"['Number', 'Factors, Multiples and Primes']",Number Concepts,1
+226,1,['Basic Arithmetic'],Arithmetic Operations,1
+227,2,"['Geometry and Measure', 'Symmetry']",Geometry & Properties,4
+228,0,['Algebra'],Algebra & Functions,1
+229,2,"['Geometry and Measure', 'Symmetry']",Geometry & Properties,1
+230,0,['Algebra'],Algebra & Functions,1
+231,2,"['Geometry and Measure', 'Angles']",Geometry & Properties,3
+232,0,['Algebra'],Algebra & Functions,2
+233,1,['Basic Arithmetic'],Arithmetic Operations,3
+234,3,"['Number', 'Negative Numbers']",Number Concepts,2
+235,0,['Algebra'],Algebra & Functions,3
+236,2,"['Geometry and Measure', '2D Names and Properties of Shapes']",Geometry & Properties,2
+237,0,['Algebra'],Algebra & Functions,3
+238,3,"['Number', 'Negative Numbers']",Number Concepts,4
+239,1,['Fractions'],Arithmetic Operations,3
+240,1,['Fractions'],Arithmetic Operations,2
+241,1,['Basic Arithmetic'],Arithmetic Operations,4
+242,3,"['Number', 'Negative Numbers']",Number Concepts,3
+243,2,"['Geometry and Measure', 'Angles']",Geometry & Properties,3
+244,1,['Fractions'],Arithmetic Operations,3
+245,2,"['Geometry and Measure', 'Similarity and Congruency']",Geometry & Properties,4
+246,2,['Geometry and Measure'],Geometry & Properties,4
+247,2,['Geometry and Measure'],Geometry & Properties,4
+248,1,['Basic Arithmetic'],Arithmetic Operations,3
+249,0,"['Algebra', 'Writing and Simplifying Expressions']",Algebra & Functions,3
+250,3,"['Number', 'Negative Numbers']",Number Concepts,3
+251,2,"['Geometry and Measure', 'Angles']",Geometry & Properties,4
+252,3,"['Number', 'Negative Numbers']",Number Concepts,3
+253,1,['Fractions'],Arithmetic Operations,2
+254,3,"['Number', 'Factors, Multiples and Primes']",Number Concepts,1
+255,0,"['Algebra', 'Formula']",Algebra & Functions,2
+256,2,"['Geometry and Measure', 'Construction, Loci and Scale Drawing']",Geometry & Properties,4
+257,1,['Basic Arithmetic'],Arithmetic Operations,1
+258,2,['Geometry and Measure'],Geometry & Properties,2
+259,1,['Basic Arithmetic'],Arithmetic Operations,3
+260,3,"['Number', 'Factors, Multiples and Primes']",Number Concepts,3
+261,2,['Geometry and Measure'],Geometry & Properties,4
+262,2,"['Geometry and Measure', '2D Names and Properties of Shapes']",Geometry & Properties,3
+263,3,"['Number', 'Negative Numbers']",Number Concepts,1
+264,2,"['Geometry and Measure', 'Symmetry']",Geometry & Properties,3
+265,2,"['Geometry and Measure', 'Angles']",Geometry & Properties,4
+266,1,['Fractions'],Arithmetic Operations,1
+267,0,['Algebra'],Algebra & Functions,1
+268,2,['Geometry and Measure'],Geometry & Properties,2
+269,1,['Fractions'],Arithmetic Operations,1
+270,1,['Fractions'],Arithmetic Operations,4
+271,2,['Geometry and Measure'],Geometry & Properties,3
+272,2,['Geometry and Measure'],Geometry & Properties,2
+273,2,['Geometry and Measure'],Geometry & Properties,2
+274,2,"['Geometry and Measure', 'Angles']",Geometry & Properties,2
+275,2,"['Geometry and Measure', '2D Names and Properties of Shapes']",Geometry & Properties,2
+276,3,"['Number', 'Negative Numbers']",Number Concepts,4
+277,2,"['Geometry and Measure', 'Symmetry']",Geometry & Properties,3
+278,3,"['Number', 'Negative Numbers']",Number Concepts,3
+279,0,['Algebra'],Algebra & Functions,3
+280,2,['Geometry and Measure'],Geometry & Properties,2
+281,3,"['Number', 'Negative Numbers']",Number Concepts,2
+282,3,"['Number', 'Negative Numbers']",Number Concepts,2
+283,1,['Basic Arithmetic'],Arithmetic Operations,2
+284,3,"['Number', 'Factors, Multiples and Primes']",Number Concepts,2
+285,1,['Basic Arithmetic'],Arithmetic Operations,2
+286,2,['Geometry and Measure'],Geometry & Properties,4
+287,1,"['Fractions, Decimals and Percentage Equivalence']",Arithmetic Operations,1
+288,2,['Geometry and Measure'],Geometry & Properties,3
+289,1,['Basic Arithmetic'],Arithmetic Operations,2
+290,1,['Basic Arithmetic'],Arithmetic Operations,2
+291,0,"['Algebra', 'Factorising']",Algebra & Functions,3
+292,1,['Basic Arithmetic'],Arithmetic Operations,3
+293,1,['Basic Arithmetic'],Arithmetic Operations,2
+294,1,['Fractions'],Arithmetic Operations,3
+295,2,"['Geometry and Measure', 'Angles']",Geometry & Properties,2
+296,1,['Fractions'],Arithmetic Operations,2
+297,0,"['Algebra', 'Writing and Simplifying Expressions']",Algebra & Functions,3
+298,2,"['Geometry and Measure', 'Angles']",Geometry & Properties,3
+299,1,['Fractions'],Arithmetic Operations,4
+300,2,['Geometry and Measure'],Geometry & Properties,4
+301,2,['Geometry and Measure'],Geometry & Properties,1
+302,0,"['Algebra', 'Straight Line Graphs']",Algebra & Functions,3
+303,3,"['Number', 'Factors, Multiples and Primes']",Number Concepts,1
+304,3,"['Number', 'Factors, Multiples and Primes']",Number Concepts,1
+305,2,['Geometry and Measure'],Geometry & Properties,2
+306,0,['Algebra'],Algebra & Functions,3
+307,2,"['Geometry and Measure', 'Angles']",Geometry & Properties,1
+308,2,['Geometry and Measure'],Geometry & Properties,3
+309,1,['Fractions'],Arithmetic Operations,3
+310,3,"['Number', 'Negative Numbers']",Number Concepts,3
+311,3,"['Number', 'Negative Numbers']",Number Concepts,4
+312,1,['Basic Arithmetic'],Arithmetic Operations,1
+313,1,['Fractions'],Arithmetic Operations,3
+314,3,"['Number', 'Negative Numbers']",Number Concepts,1
+315,1,['Fractions'],Arithmetic Operations,1
+316,2,['Geometry and Measure'],Geometry & Properties,1
+317,2,"['Geometry and Measure', 'Construction, Loci and Scale Drawing']",Geometry & Properties,3
+318,1,['Fractions'],Arithmetic Operations,2
+319,0,"['Algebra', 'Writing and Simplifying Expressions']",Algebra & Functions,2
+320,2,"['Geometry and Measure', 'Angles']",Geometry & Properties,2
+321,2,"['Geometry and Measure', 'Angles']",Geometry & Properties,2
+322,1,['Fractions'],Arithmetic Operations,4
+323,2,"['Geometry and Measure', 'Circles']",Geometry & Properties,3
+324,2,['Geometry and Measure'],Geometry & Properties,4
+325,3,"['Number', 'Negative Numbers']",Number Concepts,4
+326,1,['Basic Arithmetic'],Arithmetic Operations,3
+327,1,['Basic Arithmetic'],Arithmetic Operations,4
+328,0,"['Algebra', 'Writing and Simplifying Expressions']",Algebra & Functions,1
+329,1,['Fractions'],Arithmetic Operations,4
+330,2,['Geometry and Measure'],Geometry & Properties,1
+331,2,['Geometry and Measure'],Geometry & Properties,2
+332,3,"['Number', 'Negative Numbers']",Number Concepts,2
+333,3,"['Number', 'Factors, Multiples and Primes']",Number Concepts,2
+334,2,"['Geometry and Measure', 'Angles']",Geometry & Properties,3
+335,0,"['Algebra', 'Writing and Simplifying Expressions']",Algebra & Functions,4
+336,1,['Fractions'],Arithmetic Operations,4
+337,3,"['Number', 'Negative Numbers']",Number Concepts,1
+338,1,['Basic Arithmetic'],Arithmetic Operations,3
+339,2,"['Geometry and Measure', 'Angles']",Geometry & Properties,4
+340,1,"['Fractions, Decimals and Percentage Equivalence']",Arithmetic Operations,2
+341,2,"['Geometry and Measure', '2D Names and Properties of Shapes']",Geometry & Properties,4
+342,3,"['Number', 'Factors, Multiples and Primes']",Number Concepts,1
+343,2,"['Geometry and Measure', 'Angles']",Geometry & Properties,3
+344,3,"['Number', 'Factors, Multiples and Primes']",Number Concepts,1
+345,1,"['Fractions, Decimals and Percentage Equivalence']",Arithmetic Operations,2
+346,1,['Basic Arithmetic'],Arithmetic Operations,2
+347,1,['Fractions'],Arithmetic Operations,2
+348,2,['Geometry and Measure'],Geometry & Properties,2
+349,2,"['Geometry and Measure', 'Angles']",Geometry & Properties,2
+350,2,['Geometry and Measure'],Geometry & Properties,3
+351,2,"['Geometry and Measure', '2D Names and Properties of Shapes']",Geometry & Properties,2
+352,1,['Fractions'],Arithmetic Operations,3
+353,2,['Geometry and Measure'],Geometry & Properties,4
+354,0,"['Algebra', 'Straight Line Graphs']",Algebra & Functions,4
+355,2,['Geometry and Measure'],Geometry & Properties,3
+356,3,"['Number', 'Factors, Multiples and Primes']",Number Concepts,3
+357,1,"['Fractions, Decimals and Percentage Equivalence']",Arithmetic Operations,4
+358,2,['Geometry and Measure'],Geometry & Properties,3
+359,0,['Algebra'],Algebra & Functions,3
+360,3,"['Number', 'Negative Numbers']",Number Concepts,1
+361,3,"['Number', 'Negative Numbers']",Number Concepts,4
+362,2,"['Geometry and Measure', 'Symmetry']",Geometry & Properties,2
+363,2,"['Geometry and Measure', 'Angles']",Geometry & Properties,1
+364,2,"['Geometry and Measure', '2D Names and Properties of Shapes']",Geometry & Properties,2
+365,2,"['Geometry and Measure', 'Angles']",Geometry & Properties,1
+366,3,"['Number', 'Factors, Multiples and Primes']",Number Concepts,2
+367,3,"['Number', 'Factors, Multiples and Primes']",Number Concepts,1
+368,1,['Basic Arithmetic'],Arithmetic Operations,1
+369,3,"['Number', 'Factors, Multiples and Primes']",Number Concepts,3
+370,0,"['Algebra', 'Writing and Simplifying Expressions']",Algebra & Functions,2
+371,0,"['Algebra', 'Writing and Simplifying Expressions']",Algebra & Functions,1
+372,3,"['Number', 'Negative Numbers']",Number Concepts,2
+373,1,['Basic Arithmetic'],Arithmetic Operations,2
+374,1,['Fractions'],Arithmetic Operations,2
+375,2,['Geometry and Measure'],Geometry & Properties,3
+376,3,"['Number', 'Factors, Multiples and Primes']",Number Concepts,2
+377,3,"['Number', 'Negative Numbers']",Number Concepts,2
+378,2,"['Geometry and Measure', 'Similarity and Congruency']",Geometry & Properties,1
+379,0,"['Algebra', 'Writing and Simplifying Expressions']",Algebra & Functions,1
+380,2,"['Geometry and Measure', 'Construction, Loci and Scale Drawing']",Geometry & Properties,3
+381,1,['Fractions'],Arithmetic Operations,3
+382,1,"['Fractions, Decimals and Percentage Equivalence']",Arithmetic Operations,4
+383,3,"['Number', 'Indices, Powers and Roots']",Number Concepts,3
+384,0,['Algebra'],Algebra & Functions,4
+385,0,"['Algebra', 'Writing and Simplifying Expressions']",Algebra & Functions,4
+386,2,['Geometry and Measure'],Geometry & Properties,2
+387,2,['Geometry and Measure'],Geometry & Properties,2
+388,2,['Geometry and Measure'],Geometry & Properties,3
+389,0,"['Algebra', 'Writing and Simplifying Expressions']",Algebra & Functions,3
+390,2,['Geometry and Measure'],Geometry & Properties,3
+391,3,"['Number', 'Factors, Multiples and Primes']",Number Concepts,4
+392,0,"['Algebra', 'Writing and Simplifying Expressions']",Algebra & Functions,2
+393,1,['Fractions'],Arithmetic Operations,2
+394,2,"['Geometry and Measure', 'Angles']",Geometry & Properties,3
+395,3,"['Number', 'Factors, Multiples and Primes']",Number Concepts,1
+396,0,['Algebra'],Algebra & Functions,1
+397,1,['Fractions'],Arithmetic Operations,4
+398,0,['Algebra'],Algebra & Functions,3
+399,3,"['Number', 'Factors, Multiples and Primes']",Number Concepts,2
+400,1,['Fractions'],Arithmetic Operations,4
+401,1,['Fractions'],Arithmetic Operations,2
+402,3,"['Number', 'Negative Numbers']",Number Concepts,3
+403,2,['Geometry and Measure'],Geometry & Properties,3
+404,0,['Algebra'],Algebra & Functions,2
+405,3,"['Number', 'Negative Numbers']",Number Concepts,2
+406,2,"['Geometry and Measure', 'Angles']",Geometry & Properties,1
+407,1,['Fractions'],Arithmetic Operations,1
+408,1,['Fractions'],Arithmetic Operations,4
+409,0,"['Algebra', 'Writing and Simplifying Expressions']",Algebra & Functions,4
+410,1,['Basic Arithmetic'],Arithmetic Operations,3
+411,2,['Geometry and Measure'],Geometry & Properties,3
+412,2,"['Geometry and Measure', 'Angles']",Geometry & Properties,2
+413,2,"['Geometry and Measure', 'Angles']",Geometry & Properties,3
+414,0,['Algebra'],Algebra & Functions,1
+415,2,['Geometry and Measure'],Geometry & Properties,2
+416,0,"['Algebra', 'Formula']",Algebra & Functions,3
+417,3,"['Number', 'Factors, Multiples and Primes']",Number Concepts,4
+418,3,"['Number', 'Factors, Multiples and Primes']",Number Concepts,1
+419,1,['Fractions'],Arithmetic Operations,2
+420,2,['Geometry and Measure'],Geometry & Properties,2
+421,0,"['Algebra', 'Writing and Simplifying Expressions']",Algebra & Functions,4
+422,3,"['Number', 'Factors, Multiples and Primes']",Number Concepts,2
+423,3,"['Number', 'Negative Numbers']",Number Concepts,4
+424,2,"['Geometry and Measure', 'Circles']",Geometry & Properties,4
+425,1,['Fractions'],Arithmetic Operations,4
+426,1,['Fractions'],Arithmetic Operations,1
+427,1,['Fractions'],Arithmetic Operations,1
+428,1,['Fractions'],Arithmetic Operations,4
+429,1,['Fractions'],Arithmetic Operations,1
+430,2,['Geometry and Measure'],Geometry & Properties,1
+431,2,['Geometry and Measure'],Geometry & Properties,1
+432,2,['Geometry and Measure'],Geometry & Properties,1
+433,0,['Algebra'],Algebra & Functions,2
+434,2,"['Geometry and Measure', 'Angles']",Geometry & Properties,3
+435,3,"['Number', 'Factors, Multiples and Primes']",Number Concepts,3
+436,3,"['Number', 'Negative Numbers']",Number Concepts,2
+437,0,['Algebra'],Algebra & Functions,3
+438,1,['Basic Arithmetic'],Arithmetic Operations,1
+439,2,['Geometry and Measure'],Geometry & Properties,2
+440,2,"['Geometry and Measure', 'Construction, Loci and Scale Drawing']",Geometry & Properties,2
+441,0,"['Algebra', 'Sequences']",Algebra & Functions,4
+442,1,['Fractions'],Arithmetic Operations,1
+443,1,['Fractions'],Arithmetic Operations,3
+444,3,"['Number', 'Indices, Powers and Roots']",Number Concepts,4
+445,0,"['Algebra', 'Writing and Simplifying Expressions']",Algebra & Functions,3
+446,1,['Basic Arithmetic'],Arithmetic Operations,3
+447,3,"['Number', 'Factors, Multiples and Primes']",Number Concepts,3
+448,1,['Basic Arithmetic'],Arithmetic Operations,2
+449,3,"['Number', 'Factors, Multiples and Primes']",Number Concepts,2
+450,1,"['Fractions, Decimals and Percentage Equivalence']",Arithmetic Operations,4
+451,3,"['Number', 'Factors, Multiples and Primes']",Number Concepts,4
+452,1,['Basic Arithmetic'],Arithmetic Operations,1
+453,0,['Algebra'],Algebra & Functions,4
+454,3,"['Number', 'Factors, Multiples and Primes']",Number Concepts,1
+455,2,['Geometry and Measure'],Geometry & Properties,2
+456,0,['Algebra'],Algebra & Functions,1
+457,3,"['Number', 'Negative Numbers']",Number Concepts,1
+458,3,"['Number', 'Indices, Powers and Roots']",Number Concepts,3
+459,0,['Algebra'],Algebra & Functions,4
+460,3,"['Number', 'Negative Numbers']",Number Concepts,2
+461,3,"['Number', 'Negative Numbers']",Number Concepts,4
+462,2,"['Geometry and Measure', 'Angles']",Geometry & Properties,3
+463,3,"['Number', 'Negative Numbers']",Number Concepts,1
+464,1,['Basic Arithmetic'],Arithmetic Operations,2
+465,0,['Algebra'],Algebra & Functions,2
+466,2,"['Geometry and Measure', 'Angles']",Geometry & Properties,4
+467,2,"['Geometry and Measure', 'Circles']",Geometry & Properties,3
+468,0,['Algebra'],Algebra & Functions,1
+469,3,"['Number', 'Factors, Multiples and Primes']",Number Concepts,1
+470,2,['Geometry and Measure'],Geometry & Properties,1
+471,1,['Fractions'],Arithmetic Operations,1
+472,1,['Basic Arithmetic'],Arithmetic Operations,4
+473,1,['Basic Arithmetic'],Arithmetic Operations,4
+474,1,['Basic Arithmetic'],Arithmetic Operations,1
+475,1,['Basic Arithmetic'],Arithmetic Operations,1
+476,2,['Geometry and Measure'],Geometry & Properties,1
+477,1,['Fractions'],Arithmetic Operations,2
+478,2,['Geometry and Measure'],Geometry & Properties,1
+479,3,"['Number', 'Factors, Multiples and Primes']",Number Concepts,1
+480,1,['Basic Arithmetic'],Arithmetic Operations,1
+481,1,['Decimals'],Arithmetic Operations,4
+482,3,"['Number', 'Factors, Multiples and Primes']",Number Concepts,3
+483,2,"['Geometry and Measure', 'Construction, Loci and Scale Drawing']",Geometry & Properties,3
+484,2,"['Geometry and Measure', 'Angles']",Geometry & Properties,3
+485,3,"['Number', 'Indices, Powers and Roots']",Number Concepts,4
+486,3,"['Number', 'Factors, Multiples and Primes']",Number Concepts,3
+487,2,"['Geometry and Measure', 'Construction, Loci and Scale Drawing']",Geometry & Properties,2
+488,2,"['Geometry and Measure', 'Angles']",Geometry & Properties,3
+489,0,['Algebra'],Algebra & Functions,2
+490,0,['Algebra'],Algebra & Functions,4
+491,1,['Basic Arithmetic'],Arithmetic Operations,1
+492,2,"['Geometry and Measure', 'Angles']",Geometry & Properties,4
+493,3,"['Number', 'Negative Numbers']",Number Concepts,1
+494,1,['Basic Arithmetic'],Arithmetic Operations,3
+495,3,"['Number', 'Negative Numbers']",Number Concepts,3
+496,0,['Algebra'],Algebra & Functions,2
+497,2,"['Geometry and Measure', 'Angles']",Geometry & Properties,1
+498,0,['Algebra'],Algebra & Functions,1
+499,1,"['Fractions, Decimals and Percentage Equivalence']",Arithmetic Operations,3
+500,3,"['Number', 'Negative Numbers']",Number Concepts,4
+501,2,"['Geometry and Measure', 'Angles']",Geometry & Properties,3
+502,0,"['Algebra', 'Formula']",Algebra & Functions,1
+503,2,['Geometry and Measure'],Geometry & Properties,4
+504,1,"['Fractions, Decimals and Percentage Equivalence']",Arithmetic Operations,4
+505,3,"['Number', 'Factors, Multiples and Primes']",Number Concepts,3
+506,1,['Basic Arithmetic'],Arithmetic Operations,2
+507,2,"['Geometry and Measure', 'Angles']",Geometry & Properties,3
+508,2,"['Geometry and Measure', 'Symmetry']",Geometry & Properties,3
+509,3,"['Number', 'Indices, Powers and Roots']",Number Concepts,2
+510,2,['Geometry and Measure'],Geometry & Properties,3
+511,1,['Basic Arithmetic'],Arithmetic Operations,3
+512,1,['Fractions'],Arithmetic Operations,1
+513,1,['Basic Arithmetic'],Arithmetic Operations,2
+514,2,"['Geometry and Measure', 'Symmetry']",Geometry & Properties,4
+515,2,['Geometry and Measure'],Geometry & Properties,2
+516,3,"['Number', 'Indices, Powers and Roots']",Number Concepts,1
+517,3,"['Number', 'Negative Numbers']",Number Concepts,3
+518,1,['Fractions'],Arithmetic Operations,4
+519,1,['Basic Arithmetic'],Arithmetic Operations,1
+520,2,"['Geometry and Measure', 'Angles']",Geometry & Properties,2
+521,1,['Fractions'],Arithmetic Operations,3
+522,1,['Basic Arithmetic'],Arithmetic Operations,4
+523,0,"['Algebra', 'Factorising']",Algebra & Functions,1
+524,3,"['Number', 'Factors, Multiples and Primes']",Number Concepts,1
+525,1,['Basic Arithmetic'],Arithmetic Operations,4
+526,2,['Geometry and Measure'],Geometry & Properties,1
+527,3,"['Number', 'Negative Numbers']",Number Concepts,2
+528,2,"['Geometry and Measure', 'Angles']",Geometry & Properties,1
+529,3,"['Number', 'Negative Numbers']",Number Concepts,1
+530,2,"['Geometry and Measure', 'Angles']",Geometry & Properties,1
+531,1,['Fractions'],Arithmetic Operations,2
+532,2,"['Geometry and Measure', 'Symmetry']",Geometry & Properties,3
+533,0,"['Algebra', 'Writing and Simplifying Expressions']",Algebra & Functions,3
+534,0,['Algebra'],Algebra & Functions,3
+535,3,"['Number', 'Factors, Multiples and Primes']",Number Concepts,1
+536,2,"['Geometry and Measure', '2D Names and Properties of Shapes']",Geometry & Properties,3
+537,2,['Geometry and Measure'],Geometry & Properties,1
+538,1,['Fractions'],Arithmetic Operations,1
+539,1,['Basic Arithmetic'],Arithmetic Operations,2
+540,2,['Geometry and Measure'],Geometry & Properties,1
+541,2,"['Geometry and Measure', 'Similarity and Congruency']",Geometry & Properties,2
+542,2,['Geometry and Measure'],Geometry & Properties,3
+543,2,['Geometry and Measure'],Geometry & Properties,3
+544,1,['Fractions'],Arithmetic Operations,1
+545,0,"['Algebra', 'Writing and Simplifying Expressions']",Algebra & Functions,2
+546,1,['Basic Arithmetic'],Arithmetic Operations,3
+547,3,"['Number', 'Negative Numbers']",Number Concepts,4
+548,1,['Fractions'],Arithmetic Operations,3
+549,2,"['Geometry and Measure', 'Similarity and Congruency']",Geometry & Properties,3
+550,0,"['Algebra', 'Factorising']",Algebra & Functions,2
+551,0,"['Algebra', 'Writing and Simplifying Expressions']",Algebra & Functions,1
+552,2,['Geometry and Measure'],Geometry & Properties,2
+553,0,"['Algebra', 'Sequences']",Algebra & Functions,1
+554,3,"['Number', 'Factors, Multiples and Primes']",Number Concepts,2
+555,0,['Algebra'],Algebra & Functions,2
+556,1,['Fractions'],Arithmetic Operations,3
+557,1,['Fractions'],Arithmetic Operations,3
+558,3,"['Number', 'Factors, Multiples and Primes']",Number Concepts,2
+559,3,"['Number', 'Negative Numbers']",Number Concepts,1
+560,2,"['Geometry and Measure', 'Angles']",Geometry & Properties,3
+561,2,['Geometry and Measure'],Geometry & Properties,3
+562,1,['Fractions'],Arithmetic Operations,3
+563,3,"['Number', 'Negative Numbers']",Number Concepts,1
+564,0,['Algebra'],Algebra & Functions,2
+565,0,['Algebra'],Algebra & Functions,2
+566,1,['Basic Arithmetic'],Arithmetic Operations,2
+567,2,"['Geometry and Measure', 'Angles']",Geometry & Properties,1
+568,1,['Fractions'],Arithmetic Operations,2
+569,2,"['Geometry and Measure', 'Similarity and Congruency']",Geometry & Properties,1
+570,0,"['Algebra', 'Sequences']",Algebra & Functions,1
+571,2,"['Geometry and Measure', 'Angles']",Geometry & Properties,1
+572,0,"['Algebra', 'Writing and Simplifying Expressions']",Algebra & Functions,4
+573,2,['Geometry and Measure'],Geometry & Properties,1
+574,3,"['Number', 'Factors, Multiples and Primes']",Number Concepts,2
+575,2,['Geometry and Measure'],Geometry & Properties,4
+576,2,['Geometry and Measure'],Geometry & Properties,3
+577,2,"['Geometry and Measure', 'Angles']",Geometry & Properties,3
+578,3,"['Number', 'Factors, Multiples and Primes']",Number Concepts,2
+579,0,"['Algebra', 'Writing and Simplifying Expressions']",Algebra & Functions,3
+580,1,['Fractions'],Arithmetic Operations,3
+581,1,['Basic Arithmetic'],Arithmetic Operations,3
+582,2,['Geometry and Measure'],Geometry & Properties,2
+583,1,['Basic Arithmetic'],Arithmetic Operations,3
+584,0,"['Algebra', 'Sequences']",Algebra & Functions,4
+585,3,"['Number', 'Negative Numbers']",Number Concepts,3
+586,2,"['Geometry and Measure', 'Construction, Loci and Scale Drawing']",Geometry & Properties,1
+587,1,['Basic Arithmetic'],Arithmetic Operations,1
+588,3,"['Number', 'Negative Numbers']",Number Concepts,4
+589,0,"['Algebra', 'Formula']",Algebra & Functions,3
+590,3,"['Number', 'Factors, Multiples and Primes']",Number Concepts,2
+591,2,['Geometry and Measure'],Geometry & Properties,3
+592,1,['Basic Arithmetic'],Arithmetic Operations,3
+593,1,['Decimals'],Arithmetic Operations,3
+594,1,['Basic Arithmetic'],Arithmetic Operations,2
+595,2,['Geometry and Measure'],Geometry & Properties,3
+596,1,['Basic Arithmetic'],Arithmetic Operations,2
+597,1,['Fractions'],Arithmetic Operations,1
+598,3,"['Number', 'Factors, Multiples and Primes']",Number Concepts,3
+599,3,"['Number', 'Negative Numbers']",Number Concepts,3
+600,2,"['Geometry and Measure', '2D Names and Properties of Shapes']",Geometry & Properties,4
+601,1,['Basic Arithmetic'],Arithmetic Operations,1
+602,1,['Fractions'],Arithmetic Operations,3
+603,1,['Fractions'],Arithmetic Operations,4
+604,0,['Algebra'],Algebra & Functions,3
+605,3,"['Number', 'Negative Numbers']",Number Concepts,2
+606,1,['Fractions'],Arithmetic Operations,1
+607,3,"['Number', 'Factors, Multiples and Primes']",Number Concepts,2
+608,1,"['Fractions, Decimals and Percentage Equivalence']",Arithmetic Operations,4
+609,2,"['Geometry and Measure', '2D Names and Properties of Shapes']",Geometry & Properties,1
+610,0,"['Algebra', 'Writing and Simplifying Expressions']",Algebra & Functions,2
+611,0,"['Algebra', 'Writing and Simplifying Expressions']",Algebra & Functions,2
+612,2,"['Geometry and Measure', 'Symmetry']",Geometry & Properties,4
+613,3,"['Number', 'Indices, Powers and Roots']",Number Concepts,3
+614,1,['Basic Arithmetic'],Arithmetic Operations,1
+615,1,['Basic Arithmetic'],Arithmetic Operations,2
+616,3,"['Number', 'Factors, Multiples and Primes']",Number Concepts,3
+617,1,['Basic Arithmetic'],Arithmetic Operations,2
+618,2,['Geometry and Measure'],Geometry & Properties,2
+619,1,['Fractions'],Arithmetic Operations,1
+620,2,['Geometry and Measure'],Geometry & Properties,2
+621,1,['Fractions'],Arithmetic Operations,3
+622,2,['Geometry and Measure'],Geometry & Properties,3
+623,3,"['Number', 'Negative Numbers']",Number Concepts,3
+624,1,['Basic Arithmetic'],Arithmetic Operations,2
+625,2,"['Geometry and Measure', 'Angles']",Geometry & Properties,1
+626,3,"['Number', 'Factors, Multiples and Primes']",Number Concepts,2
+627,1,['Basic Arithmetic'],Arithmetic Operations,3
+628,3,"['Number', 'Negative Numbers']",Number Concepts,2
+629,1,['Basic Arithmetic'],Arithmetic Operations,3
+630,1,"['Fractions, Decimals and Percentage Equivalence']",Arithmetic Operations,3
+631,2,['Geometry and Measure'],Geometry & Properties,2
+632,1,['Fractions'],Arithmetic Operations,3
+633,3,"['Number', 'Factors, Multiples and Primes']",Number Concepts,2
+634,3,"['Number', 'Factors, Multiples and Primes']",Number Concepts,3
+635,3,"['Number', 'Negative Numbers']",Number Concepts,4
+636,2,"['Geometry and Measure', '2D Names and Properties of Shapes']",Geometry & Properties,4
+637,3,"['Number', 'Negative Numbers']",Number Concepts,2
+638,3,"['Number', 'Negative Numbers']",Number Concepts,4
+639,3,"['Number', 'Negative Numbers']",Number Concepts,1
+640,1,['Basic Arithmetic'],Arithmetic Operations,1
+641,0,"['Algebra', 'Straight Line Graphs']",Algebra & Functions,3
+642,0,"['Algebra', 'Writing and Simplifying Expressions']",Algebra & Functions,2
+643,2,['Geometry and Measure'],Geometry & Properties,3
+644,1,['Basic Arithmetic'],Arithmetic Operations,2
+645,3,"['Number', 'Negative Numbers']",Number Concepts,2
+646,3,"['Number', 'Negative Numbers']",Number Concepts,2
+647,2,['Geometry and Measure'],Geometry & Properties,4
+648,1,"['Fractions, Decimals and Percentage Equivalence']",Arithmetic Operations,3
+649,1,['Fractions'],Arithmetic Operations,3
+650,3,"['Number', 'Negative Numbers']",Number Concepts,4
+651,1,['Fractions'],Arithmetic Operations,2
+652,3,"['Number', 'Negative Numbers']",Number Concepts,1
+653,1,['Basic Arithmetic'],Arithmetic Operations,4
+654,2,['Geometry and Measure'],Geometry & Properties,2
+655,3,"['Number', 'Negative Numbers']",Number Concepts,3
+656,1,['Basic Arithmetic'],Arithmetic Operations,1
+657,2,"['Geometry and Measure', '2D Names and Properties of Shapes']",Geometry & Properties,3
+658,0,"['Algebra', 'Writing and Simplifying Expressions']",Algebra & Functions,1
+659,1,['Basic Arithmetic'],Arithmetic Operations,3
+660,1,['Fractions'],Arithmetic Operations,4
+661,2,"['Geometry and Measure', 'Angles']",Geometry & Properties,2
+662,2,"['Geometry and Measure', 'Circles']",Geometry & Properties,1
+663,1,['Fractions'],Arithmetic Operations,2
+664,2,"['Geometry and Measure', 'Angles']",Geometry & Properties,3
+665,3,"['Number', 'Factors, Multiples and Primes']",Number Concepts,4
+666,1,['Fractions'],Arithmetic Operations,1
+667,2,"['Geometry and Measure', '2D Names and Properties of Shapes']",Geometry & Properties,1
+668,2,"['Geometry and Measure', 'Angles']",Geometry & Properties,3
+669,2,"['Geometry and Measure', 'Angles']",Geometry & Properties,4
+670,0,"['Algebra', 'Writing and Simplifying Expressions']",Algebra & Functions,3
+671,1,['Fractions'],Arithmetic Operations,4
+672,2,"['Geometry and Measure', 'Construction, Loci and Scale Drawing']",Geometry & Properties,1
+673,3,"['Number', 'Negative Numbers']",Number Concepts,2
+674,1,['Basic Arithmetic'],Arithmetic Operations,2
+675,3,"['Number', 'Factors, Multiples and Primes']",Number Concepts,2
+676,3,"['Number', 'Negative Numbers']",Number Concepts,1
+677,3,"['Number', 'Negative Numbers']",Number Concepts,4
+678,3,"['Number', 'Negative Numbers']",Number Concepts,4
+679,2,['Geometry and Measure'],Geometry & Properties,3
+680,1,['Fractions'],Arithmetic Operations,2
+681,2,['Geometry and Measure'],Geometry & Properties,3
+682,2,"['Geometry and Measure', 'Symmetry']",Geometry & Properties,3
+683,2,"['Geometry and Measure', 'Angles']",Geometry & Properties,1
+684,2,['Geometry and Measure'],Geometry & Properties,1
+685,2,['Geometry and Measure'],Geometry & Properties,1
+686,0,"['Algebra', 'Formula']",Algebra & Functions,2
+687,2,"['Geometry and Measure', 'Circles']",Geometry & Properties,4
+688,3,"['Number', 'Factors, Multiples and Primes']",Number Concepts,3
+689,2,"['Geometry and Measure', 'Angles']",Geometry & Properties,3
+690,2,"['Geometry and Measure', 'Symmetry']",Geometry & Properties,1
+691,2,['Geometry and Measure'],Geometry & Properties,3
+692,1,['Fractions'],Arithmetic Operations,2
+693,1,['Fractions'],Arithmetic Operations,2
+694,3,"['Number', 'Factors, Multiples and Primes']",Number Concepts,3
+695,2,"['Geometry and Measure', 'Angles']",Geometry & Properties,1
+696,3,"['Number', 'Factors, Multiples and Primes']",Number Concepts,1
+697,2,['Geometry and Measure'],Geometry & Properties,2
+698,1,['Fractions'],Arithmetic Operations,2
+699,1,['Fractions'],Arithmetic Operations,1
+700,2,"['Geometry and Measure', 'Symmetry']",Geometry & Properties,3
+701,2,['Geometry and Measure'],Geometry & Properties,3
+702,1,['Fractions'],Arithmetic Operations,4
+703,1,"['Fractions, Decimals and Percentage Equivalence']",Arithmetic Operations,4
+704,2,"['Geometry and Measure', 'Symmetry']",Geometry & Properties,2
+705,2,['Geometry and Measure'],Geometry & Properties,1
+706,1,['Basic Arithmetic'],Arithmetic Operations,1
+707,3,"['Number', 'Negative Numbers']",Number Concepts,2
+708,3,"['Number', 'Factors, Multiples and Primes']",Number Concepts,2
+709,0,"['Algebra', 'Formula']",Algebra & Functions,1
+710,2,"['Geometry and Measure', 'Angles']",Geometry & Properties,4
+711,2,"['Geometry and Measure', 'Angles']",Geometry & Properties,1
+712,2,['Geometry and Measure'],Geometry & Properties,2
+713,2,"['Geometry and Measure', 'Similarity and Congruency']",Geometry & Properties,2
+714,3,"['Number', 'Factors, Multiples and Primes']",Number Concepts,1
+715,1,"['Fractions, Decimals and Percentage Equivalence']",Arithmetic Operations,2
+716,0,"['Algebra', 'Sequences']",Algebra & Functions,1
+717,0,"['Algebra', 'Writing and Simplifying Expressions']",Algebra & Functions,2
+718,2,['Geometry and Measure'],Geometry & Properties,4
+719,1,"['Fractions, Decimals and Percentage Equivalence']",Arithmetic Operations,2
+720,2,['Geometry and Measure'],Geometry & Properties,4
+721,2,"['Geometry and Measure', 'Symmetry']",Geometry & Properties,2
+722,1,['Fractions'],Arithmetic Operations,3
+723,2,['Geometry and Measure'],Geometry & Properties,2
+724,1,['Fractions'],Arithmetic Operations,3
+725,0,"['Algebra', 'Straight Line Graphs']",Algebra & Functions,3
+726,2,"['Geometry and Measure', 'Similarity and Congruency']",Geometry & Properties,3
+727,2,"['Geometry and Measure', 'Angles']",Geometry & Properties,2
+728,3,"['Number', 'Indices, Powers and Roots']",Number Concepts,2
+729,2,"['Geometry and Measure', 'Angles']",Geometry & Properties,4
+730,1,"['Fractions, Decimals and Percentage Equivalence']",Arithmetic Operations,2
+731,2,"['Geometry and Measure', 'Symmetry']",Geometry & Properties,3
+732,3,"['Number', 'Negative Numbers']",Number Concepts,3
+733,1,['Fractions'],Arithmetic Operations,3
+734,2,"['Geometry and Measure', 'Construction, Loci and Scale Drawing']",Geometry & Properties,4
+735,1,['Basic Arithmetic'],Arithmetic Operations,3
+736,3,"['Number', 'Negative Numbers']",Number Concepts,4
+737,2,"['Geometry and Measure', 'Construction, Loci and Scale Drawing']",Geometry & Properties,3
+738,3,"['Number', 'Negative Numbers']",Number Concepts,3
+739,3,"['Number', 'Factors, Multiples and Primes']",Number Concepts,2
+740,0,"['Algebra', 'Formula']",Algebra & Functions,1
+741,2,['Geometry and Measure'],Geometry & Properties,2
+742,3,"['Number', 'Factors, Multiples and Primes']",Number Concepts,3
+743,3,"['Number', 'Factors, Multiples and Primes']",Number Concepts,1
+744,1,['Basic Arithmetic'],Arithmetic Operations,1
+745,1,['Basic Arithmetic'],Arithmetic Operations,2
+746,2,['Geometry and Measure'],Geometry & Properties,3
+747,3,"['Number', 'Factors, Multiples and Primes']",Number Concepts,4
+748,0,['Algebra'],Algebra & Functions,1
+749,1,['Basic Arithmetic'],Arithmetic Operations,1
+750,2,"['Geometry and Measure', 'Symmetry']",Geometry & Properties,2
+751,1,['Basic Arithmetic'],Arithmetic Operations,1
+752,1,['Decimals'],Arithmetic Operations,3
+753,3,"['Number', 'Factors, Multiples and Primes']",Number Concepts,3
+754,3,"['Number', 'Negative Numbers']",Number Concepts,3
+755,3,"['Number', 'Negative Numbers']",Number Concepts,4
+756,2,"['Geometry and Measure', 'Similarity and Congruency']",Geometry & Properties,1
+757,1,['Fractions'],Arithmetic Operations,4
+758,3,"['Number', 'Indices, Powers and Roots']",Number Concepts,1
+759,1,['Fractions'],Arithmetic Operations,1
+760,1,"['Fractions, Decimals and Percentage Equivalence']",Arithmetic Operations,1
+761,2,"['Geometry and Measure', 'Angles']",Geometry & Properties,2
+762,0,['Algebra'],Algebra & Functions,3
+763,1,['Fractions'],Arithmetic Operations,3
+764,3,"['Number', 'Negative Numbers']",Number Concepts,4
+765,1,"['Fractions, Decimals and Percentage Equivalence']",Arithmetic Operations,1
+766,2,"['Geometry and Measure', 'Angles']",Geometry & Properties,2
+767,1,['Basic Arithmetic'],Arithmetic Operations,3
+768,2,"['Geometry and Measure', 'Angles']",Geometry & Properties,4
+769,3,"['Number', 'Negative Numbers']",Number Concepts,1
+770,2,"['Geometry and Measure', 'Angles']",Geometry & Properties,1
+771,1,['Fractions'],Arithmetic Operations,3
+772,2,"['Geometry and Measure', 'Angles']",Geometry & Properties,3
+773,3,"['Number', 'Factors, Multiples and Primes']",Number Concepts,3
+774,1,['Fractions'],Arithmetic Operations,3
+775,1,['Fractions'],Arithmetic Operations,1
+776,0,['Algebra'],Algebra & Functions,1
+777,2,['Geometry and Measure'],Geometry & Properties,3
+778,2,['Geometry and Measure'],Geometry & Properties,2
+779,2,"['Geometry and Measure', 'Angles']",Geometry & Properties,1
+780,2,"['Geometry and Measure', 'Angles']",Geometry & Properties,3
+781,0,"['Algebra', 'Writing and Simplifying Expressions']",Algebra & Functions,4
+782,0,"['Algebra', 'Sequences']",Algebra & Functions,1
+783,3,"['Number', 'Factors, Multiples and Primes']",Number Concepts,3
+784,2,"['Geometry and Measure', 'Similarity and Congruency']",Geometry & Properties,4
+785,3,"['Number', 'Factors, Multiples and Primes']",Number Concepts,2
+786,3,"['Number', 'Negative Numbers']",Number Concepts,3
+787,1,['Basic Arithmetic'],Arithmetic Operations,4
+788,3,"['Number', 'Negative Numbers']",Number Concepts,3
+789,3,"['Number', 'Negative Numbers']",Number Concepts,3
+790,1,['Basic Arithmetic'],Arithmetic Operations,3
+791,3,"['Number', 'Indices, Powers and Roots']",Number Concepts,2
+792,2,"['Geometry and Measure', 'Angles']",Geometry & Properties,3
+793,1,['Fractions'],Arithmetic Operations,2
+794,0,"['Algebra', 'Writing and Simplifying Expressions']",Algebra & Functions,1
+795,3,"['Number', 'Negative Numbers']",Number Concepts,2
+796,1,"['Fractions, Decimals and Percentage Equivalence']",Arithmetic Operations,3
+797,1,['Fractions'],Arithmetic Operations,1
+798,2,['Geometry and Measure'],Geometry & Properties,1
+799,1,['Fractions'],Arithmetic Operations,4
+800,3,"['Number', 'Negative Numbers']",Number Concepts,1
+801,0,['Algebra'],Algebra & Functions,1
+802,2,"['Geometry and Measure', 'Angles']",Geometry & Properties,3
+803,1,['Basic Arithmetic'],Arithmetic Operations,3
+804,1,['Basic Arithmetic'],Arithmetic Operations,1
+805,3,"['Number', 'Factors, Multiples and Primes']",Number Concepts,2
+806,2,"['Geometry and Measure', 'Angles']",Geometry & Properties,3
+807,1,['Fractions'],Arithmetic Operations,4
+808,0,"['Algebra', 'Writing and Simplifying Expressions']",Algebra & Functions,1
+809,3,"['Number', 'Negative Numbers']",Number Concepts,3
+810,1,['Fractions'],Arithmetic Operations,4
+811,1,['Basic Arithmetic'],Arithmetic Operations,2
+812,1,"['Fractions, Decimals and Percentage Equivalence']",Arithmetic Operations,4
+813,3,"['Number', 'Negative Numbers']",Number Concepts,2
+814,2,"['Geometry and Measure', 'Circles']",Geometry & Properties,4
+815,2,"['Geometry and Measure', 'Angles']",Geometry & Properties,1
+816,3,"['Number', 'Factors, Multiples and Primes']",Number Concepts,1
+817,1,['Fractions'],Arithmetic Operations,2
+818,0,['Algebra'],Algebra & Functions,2
+819,1,['Basic Arithmetic'],Arithmetic Operations,1
+820,2,"['Geometry and Measure', 'Symmetry']",Geometry & Properties,4
+821,3,"['Number', 'Indices, Powers and Roots']",Number Concepts,1
+822,2,['Geometry and Measure'],Geometry & Properties,3
+823,2,"['Geometry and Measure', 'Symmetry']",Geometry & Properties,4
+824,2,"['Geometry and Measure', 'Angles']",Geometry & Properties,4
+825,1,['Basic Arithmetic'],Arithmetic Operations,4
+826,3,"['Number', 'Factors, Multiples and Primes']",Number Concepts,3
+827,2,['Geometry and Measure'],Geometry & Properties,2
+828,3,"['Number', 'Indices, Powers and Roots']",Number Concepts,3
+829,3,"['Number', 'Factors, Multiples and Primes']",Number Concepts,4
+830,1,['Basic Arithmetic'],Arithmetic Operations,4
+831,3,"['Number', 'Negative Numbers']",Number Concepts,2
+832,1,['Fractions'],Arithmetic Operations,1
+833,3,"['Number', 'Negative Numbers']",Number Concepts,2
+834,0,"['Algebra', 'Formula']",Algebra & Functions,2
+835,0,"['Algebra', 'Writing and Simplifying Expressions']",Algebra & Functions,3
+836,0,"['Algebra', 'Writing and Simplifying Expressions']",Algebra & Functions,4
+837,2,['Geometry and Measure'],Geometry & Properties,3
+838,2,"['Geometry and Measure', 'Angles']",Geometry & Properties,1
+839,1,['Basic Arithmetic'],Arithmetic Operations,4
+840,3,"['Number', 'Factors, Multiples and Primes']",Number Concepts,1
+841,1,['Fractions'],Arithmetic Operations,3
+842,1,['Fractions'],Arithmetic Operations,4
+843,1,"['Fractions, Decimals and Percentage Equivalence']",Arithmetic Operations,4
+844,0,"['Algebra', 'Factorising']",Algebra & Functions,2
+845,2,['Geometry and Measure'],Geometry & Properties,1
+846,2,"['Geometry and Measure', '2D Names and Properties of Shapes']",Geometry & Properties,3
+847,1,"['Fractions, Decimals and Percentage Equivalence']",Arithmetic Operations,3
+848,2,['Geometry and Measure'],Geometry & Properties,4
+849,3,"['Number', 'Negative Numbers']",Number Concepts,4
+850,0,"['Algebra', 'Formula']",Algebra & Functions,2
+851,3,"['Number', 'Factors, Multiples and Primes']",Number Concepts,3
+852,3,"['Number', 'Negative Numbers']",Number Concepts,2
+853,2,['Geometry and Measure'],Geometry & Properties,3
+854,1,['Fractions'],Arithmetic Operations,2
+855,2,"['Geometry and Measure', 'Angles']",Geometry & Properties,3
+856,0,"['Algebra', 'Writing and Simplifying Expressions']",Algebra & Functions,3
+857,3,"['Number', 'Factors, Multiples and Primes']",Number Concepts,1
+858,0,"['Algebra', 'Factorising']",Algebra & Functions,3
+859,0,['Algebra'],Algebra & Functions,3
+860,1,['Fractions'],Arithmetic Operations,2
+861,2,['Geometry and Measure'],Geometry & Properties,2
+862,0,"['Algebra', 'Writing and Simplifying Expressions']",Algebra & Functions,2
+863,2,"['Geometry and Measure', 'Angles']",Geometry & Properties,1
+864,3,"['Number', 'Factors, Multiples and Primes']",Number Concepts,3
+865,2,"['Geometry and Measure', 'Construction, Loci and Scale Drawing']",Geometry & Properties,2
+866,2,"['Geometry and Measure', 'Angles']",Geometry & Properties,1
+867,3,"['Number', 'Negative Numbers']",Number Concepts,1
+868,0,"['Algebra', 'Formula']",Algebra & Functions,3
+869,2,['Geometry and Measure'],Geometry & Properties,2
+870,2,"['Geometry and Measure', 'Circles']",Geometry & Properties,3
+871,0,['Algebra'],Algebra & Functions,2
+872,0,['Algebra'],Algebra & Functions,4
+873,2,"['Geometry and Measure', 'Angles']",Geometry & Properties,2
+874,2,"['Geometry and Measure', 'Similarity and Congruency']",Geometry & Properties,1
+875,2,"['Geometry and Measure', 'Angles']",Geometry & Properties,1
+876,1,['Fractions'],Arithmetic Operations,1
+877,0,"['Algebra', 'Straight Line Graphs']",Algebra & Functions,1
+878,2,"['Geometry and Measure', 'Construction, Loci and Scale Drawing']",Geometry & Properties,4
+879,2,"['Geometry and Measure', 'Angles']",Geometry & Properties,3
+880,1,['Basic Arithmetic'],Arithmetic Operations,2
+881,1,['Basic Arithmetic'],Arithmetic Operations,3
+882,3,"['Number', 'Negative Numbers']",Number Concepts,2
+883,1,['Fractions'],Arithmetic Operations,2
+884,2,['Geometry and Measure'],Geometry & Properties,2
+885,0,"['Algebra', 'Writing and Simplifying Expressions']",Algebra & Functions,1
+886,1,['Fractions'],Arithmetic Operations,4
+887,1,['Basic Arithmetic'],Arithmetic Operations,3
+888,3,"['Number', 'Factors, Multiples and Primes']",Number Concepts,3
+889,1,['Basic Arithmetic'],Arithmetic Operations,1
+890,3,"['Number', 'Factors, Multiples and Primes']",Number Concepts,2
+891,0,['Algebra'],Algebra & Functions,4
+892,1,['Fractions'],Arithmetic Operations,1
+893,1,['Fractions'],Arithmetic Operations,3
+894,2,['Geometry and Measure'],Geometry & Properties,2
+895,1,['Fractions'],Arithmetic Operations,1
+896,3,"['Number', 'Factors, Multiples and Primes']",Number Concepts,3
+897,1,['Fractions'],Arithmetic Operations,1
+898,0,"['Algebra', 'Writing and Simplifying Expressions']",Algebra & Functions,2
+899,1,['Fractions'],Arithmetic Operations,4
+900,0,['Algebra'],Algebra & Functions,1
+901,2,"['Geometry and Measure', 'Angles']",Geometry & Properties,1
+902,0,"['Algebra', 'Sequences']",Algebra & Functions,4
+903,2,"['Geometry and Measure', 'Angles']",Geometry & Properties,2
+904,3,"['Number', 'Negative Numbers']",Number Concepts,1
+905,1,['Fractions'],Arithmetic Operations,2
+906,0,"['Algebra', 'Straight Line Graphs']",Algebra & Functions,3
+907,2,"['Geometry and Measure', 'Symmetry']",Geometry & Properties,4
+908,3,"['Number', 'Negative Numbers']",Number Concepts,4
+909,1,['Fractions'],Arithmetic Operations,4
+910,2,"['Geometry and Measure', 'Angles']",Geometry & Properties,2
+911,3,"['Number', 'Negative Numbers']",Number Concepts,2
+912,1,['Basic Arithmetic'],Arithmetic Operations,1
+913,2,"['Geometry and Measure', 'Symmetry']",Geometry & Properties,1
+914,2,"['Geometry and Measure', 'Angles']",Geometry & Properties,3
+915,3,"['Number', 'Negative Numbers']",Number Concepts,1
+916,0,"['Algebra', 'Sequences']",Algebra & Functions,1
+917,2,['Geometry and Measure'],Geometry & Properties,2
+918,3,"['Number', 'Factors, Multiples and Primes']",Number Concepts,2
+919,2,['Geometry and Measure'],Geometry & Properties,4
+920,2,"['Geometry and Measure', 'Angles']",Geometry & Properties,1
+921,3,"['Number', 'Factors, Multiples and Primes']",Number Concepts,2
+922,3,"['Number', 'Negative Numbers']",Number Concepts,4
+923,0,"['Algebra', 'Writing and Simplifying Expressions']",Algebra & Functions,1
+924,1,['Basic Arithmetic'],Arithmetic Operations,2
+925,1,['Fractions'],Arithmetic Operations,2
+926,3,"['Number', 'Negative Numbers']",Number Concepts,3
+927,2,"['Geometry and Measure', 'Angles']",Geometry & Properties,1
+928,1,['Fractions'],Arithmetic Operations,4
+929,1,['Fractions'],Arithmetic Operations,2
+930,1,['Fractions'],Arithmetic Operations,3
+931,2,"['Geometry and Measure', '2D Names and Properties of Shapes']",Geometry & Properties,4
+932,1,['Basic Arithmetic'],Arithmetic Operations,4
+933,2,"['Geometry and Measure', 'Circles']",Geometry & Properties,2
+934,0,"['Algebra', 'Factorising']",Algebra & Functions,1
+935,2,"['Geometry and Measure', 'Angles']",Geometry & Properties,1
+936,3,"['Number', 'Factors, Multiples and Primes']",Number Concepts,4
+937,1,['Decimals'],Arithmetic Operations,4
+938,3,"['Number', 'Negative Numbers']",Number Concepts,4
+939,1,['Basic Arithmetic'],Arithmetic Operations,4
+940,1,['Fractions'],Arithmetic Operations,1
+941,3,"['Number', 'Negative Numbers']",Number Concepts,4
+942,1,['Fractions'],Arithmetic Operations,3
+943,1,['Basic Arithmetic'],Arithmetic Operations,4
+944,3,"['Number', 'Factors, Multiples and Primes']",Number Concepts,4
+945,3,"['Number', 'Negative Numbers']",Number Concepts,1
+946,1,['Fractions'],Arithmetic Operations,2
+947,2,['Geometry and Measure'],Geometry & Properties,2

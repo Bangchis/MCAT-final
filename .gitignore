@@ -1,0 +1,38 @@
+# Python
+__pycache__/
+*.py[cod]
+
+# Virtual environment
+.venv/
+pyvenv.cfg
+
+# R
+*.Rhistory
+.RData
+
+# Node
+node_modules/
+build/
+
+# VSCode
+.vscode/
+
+# Temporary session
+sess@next_item
+
+# (Nếu có) File log, backup và nhiều thứ khác:
+*.log
+*.bak
+*.swp
+# ... thêm các mẫu file khác nếu cần
+
+
+# Ignore backup and archwiz files in src/r_service
+src/r_service/backup.R
+src/r_service/arch_wiz2.R
+src/r_service/arch_wiz3.R
+src/r_service/arch_wizard.R
+
+
+pre.py
+pre2.py

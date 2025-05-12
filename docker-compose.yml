@@ -1,0 +1,21 @@
+// filepath: /mnt/e/cs50web/MCAT/docker-compose.yml
+version: "3.8"
+services:
+  frontend:
+    build: ./frontend
+    ports:
+      - "3000:80"
+    depends_on:
+      - backend
+
+  backend:
+    build: ./src/backend
+    ports:
+      - "5000:5000"
+    depends_on:
+      - r_service
+
+  r_service:
+    build: ./src/r_service
+    ports:
+      - "8000:8000"
