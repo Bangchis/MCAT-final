@@ -1,5 +1,6 @@
-// filepath: /mnt/e/cs50web/MCAT/src/r_service/Dockerfile
 FROM rocker/r-ver:4.2.0
+
+# Thêm comment này để buộc rebuild layer sau
 RUN R -e "install.packages('plumber', repos='https://cloud.r-project.org')"
 WORKDIR /app
 COPY . .

@@ -1,4 +1,3 @@
-// filepath: /mnt/e/cs50web/MCAT/frontend/Dockerfile
 FROM node:18-alpine AS build
 WORKDIR /app
 COPY package*.json ./

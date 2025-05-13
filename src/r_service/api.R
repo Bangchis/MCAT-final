@@ -294,7 +294,7 @@ compute_fisher_info <- function(item_idx, theta, mod) {
 }
 
 # ---- Enhanced Bayesian Optimality with Difficulty Bias -------------------
-compute_difficulty_biased_optimality <- function(I_new, prior_cov_inv, item_idx, b_vals, bias_factor = 0.3) {
+compute_difficulty_biased_optimality <- function(I_new, prior_cov_inv, item_idx, b_vals, bias_factor = 0.05) {
   tryCatch({
     # Base D-optimality
     base_value <- det(I_new + prior_cov_inv)

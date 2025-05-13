@@ -1,4 +1,4 @@
-// filepath: /mnt/e/cs50web/MCAT/docker-compose.yml
+
 version: "3.8"
 services:
   frontend:

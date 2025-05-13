@@ -32,10 +32,22 @@ ChartJS.register(
 export function ResultsPage({ result }) {
     const [isLoaded, setIsLoaded] = useState(false);
     const [showQuestionDetails, setShowQuestionDetails] = useState(false);
+    const [selectedQuestion, setSelectedQuestion] = useState(null);
+    const [showQuestionModal, setShowQuestionModal] = useState(false);
 
     useEffect(() => {
         setIsLoaded(true);
     }, []);
+
+    const handleQuestionClick = (question) => {
+        setSelectedQuestion(question);
+        setShowQuestionModal(true);
+    };
+
+    const closeModal = () => {
+        setShowQuestionModal(false);
+        setSelectedQuestion(null);
+    };
 
     // Calculate detailed statistics
     const stats = useMemo(() => {
@@ -46,6 +58,16 @@ export function ResultsPage({ result }) {
         const userAnswers = result.user_answers || [];
         const subjects = result.subjects || [];
         const correctAnswers = result.correct_answers || [];
+
+        console.log('ResultsPage - Processing data:', {
+            administered: administered.length,
+            responses: responses.length,
+            userAnswers: userAnswers.length,
+            subjects: subjects.length,
+            correctAnswers: correctAnswers.length,
+            sampleSubjects: subjects.slice(0, 5),
+            sampleAdministered: administered.slice(0, 5)
+        });
 
         // Group by subject
         const subjectStats = {};
@@ -66,8 +88,9 @@ export function ResultsPage({ result }) {
             subjectStats[subject].total++;
             if (isCorrect) subjectStats[subject].correct++;
 
-            // Convert user answer from 1-4 to A-D
-            const userAnswerLetter = String.fromCharCode(64 + userAnswers[idx]);
+            // Convert user answer from 1-4 to A-D (ensure valid range)
+            const userAnswerIdx = Math.max(1, Math.min(4, userAnswers[idx] || 1));
+            const userAnswerLetter = String.fromCharCode(64 + userAnswerIdx);
             const correctAnswerLetter = correctAnswers[idx];
 
             const questionDetail = {
@@ -83,6 +106,19 @@ export function ResultsPage({ result }) {
             questionDetails[qid] = questionDetail;
         });
 
+        // Calculate accuracy after all questions are grouped
+        Object.keys(subjectStats).forEach(subject => {
+            const stat = subjectStats[subject];
+            stat.accuracy = Math.round((stat.correct / stat.total) * 100);
+        });
+
+        console.log('ResultsPage - Subject stats after processing:', subjectStats);
+
+        // Debug each subject's questions
+        Object.entries(subjectStats).forEach(([subject, stat]) => {
+            console.log(`Subject ${subject}: ${stat.questions.length} questions`, stat.questions);
+        });
+
         // Calculate accuracy percentages
         Object.keys(subjectStats).forEach(subject => {
             const stat = subjectStats[subject];
@@ -92,7 +128,10 @@ export function ResultsPage({ result }) {
         // Calculate overall stats
         const totalCorrect = responses.filter(r => r === 1).length;
         const totalAccuracy = Math.round((totalCorrect / responses.length) * 100);
-        const avgTheta = result.theta.reduce((sum, val) => sum + val, 0) / result.theta.length;
+
+        // Scale theta vector by 1.5
+        const scaledTheta = result.theta.map(t => t * 1.5);
+        const avgTheta = scaledTheta.reduce((sum, val) => sum + val, 0) / scaledTheta.length;
 
         // Format timing data
         const formatTime = (seconds) => {
@@ -122,19 +161,21 @@ export function ResultsPage({ result }) {
 
         const percentile = Math.round(calculatePercentile(avgTheta));
 
-        // Create normal distribution data inline
+        // Create normal distribution data inline with scaled theta
         const points = [];
         const shadedPoints = [];
-        const range = 6; // -3 to 3 standard deviations
+        const range = 9; // Expanded range for scaled values (-4.5 to 4.5)
         const steps = 200;
 
         for (let i = 0; i <= steps; i++) {
             const x = -range / 2 + (range * i / steps);
-            const y = Math.exp(-0.5 * x * x) / Math.sqrt(2 * Math.PI);
+            // Adjust normal distribution for scaled theta (scale down by 1.5)
+            const scaledX = x / 1.5;
+            const y = Math.exp(-0.5 * scaledX * scaledX) / Math.sqrt(2 * Math.PI);
 
             points.push({ x, y });
 
-            // Add to shaded area if below user's theta
+            // Add to shaded area if below user's scaled theta
             if (x <= avgTheta) {
                 shadedPoints.push({ x, y });
             }
@@ -142,23 +183,23 @@ export function ResultsPage({ result }) {
 
         const normalDistData = { points, shadedPoints };
 
-        // Calculate theta interpretation
+        // Calculate theta interpretation with scaled thresholds (1.5x)
         const getAbilityLevel = (theta) => {
-            if (theta < -1) return { level: 'Beginner', color: '#EF4444', description: 'Need more practice' };
+            if (theta < -1.5) return { level: 'Beginner', color: '#EF4444', description: 'Need more practice' };
             if (theta < 0) return { level: 'Below Average', color: '#F59E0B', description: 'Room for improvement' };
-            if (theta < 0.5) return { level: 'Average', color: '#3B82F6', description: 'Good foundation' };
-            if (theta < 1) return { level: 'Above Average', color: '#8B5CF6', description: 'Strong performance' };
+            if (theta < 0.75) return { level: 'Average', color: '#3B82F6', description: 'Good foundation' };
+            if (theta < 1.5) return { level: 'Above Average', color: '#8B5CF6', description: 'Strong performance' };
             return { level: 'Advanced', color: '#10B981', description: 'Excellent mastery' };
         };
 
         const abilityInfo = getAbilityLevel(avgTheta);
 
-        // Get subject names for display
+        // Get correct subject names for display
         const subjectNames = {
-            '0': { name: 'Mathematics', icon: '🔢', color: '#3B82F6' },
-            '1': { name: 'Physics', icon: '⚛️', color: '#8B5CF6' },
-            '2': { name: 'Chemistry', icon: '🧪', color: '#10B981' },
-            '3': { name: 'Biology', icon: '🧬', color: '#F59E0B' }
+            '0': { name: 'Number Concepts', icon: '🔢', color: '#3B82F6' },
+            '1': { name: 'Arithmetic Operations', icon: '➕', color: '#8B5CF6' },
+            '2': { name: 'Algebra & Functions', icon: '📐', color: '#10B981' },
+            '3': { name: 'Geometry & Properties', icon: '📏', color: '#F59E0B' }
         };
 
         return {
@@ -167,13 +208,14 @@ export function ResultsPage({ result }) {
             totalAccuracy,
             totalCorrect,
             totalQuestions: responses.length,
-            avgTheta,
+            scaledTheta,  // Add scaled theta
+            avgTheta,     // This is now the scaled average
             percentile,
             normalDistData,
             abilityInfo,
             formattedTotalTime,
             timePerQuestion,
-            dimensionNames: ['Mathematics', 'Physics', 'Chemistry', 'Biology'],
+            dimensionNames: ['Number Concepts', 'Arithmetic Operations', 'Algebra & Functions', 'Geometry & Properties'],
             subjectNames
         };
     }, [result]);
@@ -212,12 +254,12 @@ export function ResultsPage({ result }) {
         );
     }
 
-    // Prepare chart data
+    // Prepare chart data with scaled theta
     const radarData = {
         labels: stats.dimensionNames,
         datasets: [{
-            label: 'Ability Level (θ)',
-            data: result.theta,
+            label: 'Ability Level (θ × 1.5)',
+            data: stats.scaledTheta, // Use scaled theta
             fill: true,
             backgroundColor: 'rgba(79, 70, 229, 0.1)',
             borderColor: 'rgba(79, 70, 229, 1)',
@@ -319,11 +361,11 @@ export function ResultsPage({ result }) {
             x: {
                 type: 'linear',
                 position: 'bottom',
-                min: -3,
-                max: 3,
+                min: -4.5,      // Scaled range
+                max: 4.5,       // Scaled range
                 title: {
                     display: true,
-                    text: 'Theta (θ)',
+                    text: 'Theta (θ × 1.5)',  // Updated label
                     font: {
                         size: 14,
                         weight: 'bold'
@@ -414,7 +456,7 @@ export function ResultsPage({ result }) {
                     <h3>📈 Your Performance in Context</h3>
                     <div className="chart-container normal-dist-container">
                         <div className="chart-info">
-                            <p>This chart shows your theta score (θ = {stats.avgTheta.toFixed(2)}) in the context of a normal distribution. The shaded area represents the percentage of people you've outperformed.</p>
+                            <p>This chart shows your scaled theta score (θ × 1.5 = {stats.avgTheta.toFixed(2)}) in the context of a normal distribution. The shaded area represents the percentage of people you've outperformed.</p>
                         </div>
                         <div className="normal-dist-chart">
                             <Line data={normalDistData} options={normalDistOptions} height={300} />
@@ -438,10 +480,10 @@ export function ResultsPage({ result }) {
                                     scales: {
                                         r: {
                                             beginAtZero: true,
-                                            max: 3,
-                                            min: -3,
+                                            max: 4.5,      // Scaled max: 3 × 1.5 = 4.5
+                                            min: -4.5,     // Scaled min: -3 × 1.5 = -4.5
                                             ticks: {
-                                                stepSize: 0.5,
+                                                stepSize: 0.75,  // Scaled step: 0.5 × 1.5 = 0.75
                                                 color: '#6B7280',
                                                 display: false  // Hide the tick labels on radar axes
                                             },
@@ -571,6 +613,28 @@ export function ResultsPage({ result }) {
                     </div>
                 </div>
 
+                {/* Debug Raw Data */}
+                {process.env.NODE_ENV === 'development' && (
+                    <div style={{
+                        background: '#f8f9fa',
+                        padding: '1rem',
+                        margin: '1rem 0',
+                        borderRadius: '8px',
+                        fontSize: '12px'
+                    }}>
+                        <h4>Raw Result Data:</h4>
+                        <pre style={{ overflow: 'auto', maxHeight: '200px' }}>
+                            {JSON.stringify({
+                                administered: result.administered,
+                                subjects: result.subjects,
+                                responses: result.responses,
+                                user_answers: result.user_answers,
+                                correct_answers: result.correct_answers
+                            }, null, 2)}
+                        </pre>
+                    </div>
+                )}
+
                 {/* Question Details Toggle */}
                 <div className="details-toggle">
                     <button
@@ -588,61 +652,140 @@ export function ResultsPage({ result }) {
                 {showQuestionDetails && (
                     <div className="question-details slide-up">
                         <h3>📋 Detailed Question Analysis</h3>
+
+                        {/* Debug Information */}
+                        {process.env.NODE_ENV === 'development' && (
+                            <div style={{ background: '#f0f0f0', padding: '10px', marginBottom: '20px', borderRadius: '5px' }}>
+                                <h4>Debug Info:</h4>
+                                <p>Total administered: {result.administered?.length || 0}</p>
+                                <p>Total responses: {result.responses?.length || 0}</p>
+                                <p>Total subjects: {result.subjects?.length || 0}</p>
+                                <p>Total user_answers: {result.user_answers?.length || 0}</p>
+                                <p>First few subjects: {JSON.stringify(result.subjects?.slice(0, 5))}</p>
+                                <p>First few administered: {JSON.stringify(result.administered?.slice(0, 5))}</p>
+                                <p>Subject stats keys: {JSON.stringify(Object.keys(stats.subjectStats))}</p>
+                                <p>Questions per subject: {JSON.stringify(
+                                    Object.entries(stats.subjectStats).map(([key, stat]) =>
+                                        `${key}: ${stat.questions.length} questions`
+                                    )
+                                )}</p>
+                            </div>
+                        )}
+
                         {Object.entries(stats.subjectStats).map(([subjectId, stat]) => {
                             const subjectInfo = stats.subjectNames[subjectId] || { name: `Subject ${subjectId}`, icon: '📝', color: '#6B7280' };
+                            console.log(`Rendering subject ${subjectId}:`, stat);
+
                             return (
                                 <div key={subjectId} className="question-subject-group">
                                     <h4 className="subject-group-header">
                                         <span className="subject-icon">{subjectInfo.icon}</span>
-                                        {subjectInfo.name} ({stat.accuracy}% correct)
+                                        {subjectInfo.name} ({stat.accuracy}% correct) - {stat.questions.length} questions
                                     </h4>
-                                    <div className="question-grid">
-                                        {stat.questions.map((q, idx) => (
-                                            <div key={idx} className={`question-card ${q.isCorrect ? 'correct' : 'incorrect'}`}>
-                                                <div className="question-status">
-                                                    <span className={`status-icon ${q.isCorrect ? 'correct' : 'incorrect'}`}>
-                                                        {q.isCorrect ? '✓' : '✗'}
-                                                    </span>
-                                                    <span className="status-text">
-                                                        {q.isCorrect ? 'Correct' : 'Wrong'}
-                                                    </span>
-                                                </div>
 
-                                                <div className="question-image">
-                                                    <img
-                                                        src={`/images/${q.qid}.jpg`}
-                                                        alt="question"
-                                                        onError={(e) => {
-                                                            e.target.style.display = 'none';
-                                                            e.target.nextElementSibling.style.display = 'block';
-                                                        }}
-                                                    />
-                                                    <div className="image-placeholder" style={{ display: 'none' }}>
-                                                        <span>📷</span>
-                                                        <p>Question {q.qid}</p>
-                                                    </div>
-                                                </div>
+                                    {/* Flexbox container for questions */}
+                                    <div className="question-flexbox">
+                                        {stat.questions.map((q, idx) => {
+                                            const imagePath = `/images/${q.qid}.jpg`;
+                                            console.log(`📸 Question ${idx} for subject ${subjectId}:`, q);
+                                            console.log(`📍 Image path: ${imagePath}`);
 
-                                                <div className="question-answers">
-                                                    <div className="answer-row">
-                                                        <span className="answer-label">Your answer:</span>
-                                                        <span className={`answer-value ${q.isCorrect ? 'correct' : 'incorrect'}`}>
-                                                            {q.userAnswer}
-                                                        </span>
-                                                    </div>
-                                                    <div className="answer-row">
-                                                        <span className="answer-label">Correct answer:</span>
-                                                        <span className="answer-value correct">
-                                                            {q.correctAnswer}
-                                                        </span>
+                                            return (
+                                                <div key={`${subjectId}-${idx}`} className="question-card-flex">
+                                                    <div className="question-image-container">
+                                                        <img
+                                                            src={imagePath}
+                                                            alt={`Question ${q.qid}`}
+                                                            className={`question-image-interactive ${q.isCorrect ? 'correct' : 'incorrect'}`}
+                                                            onClick={() => handleQuestionClick(q)}
+                                                            onError={(e) => {
+                                                                console.error(`❌ Failed to load: ${imagePath}`);
+                                                                e.target.style.display = 'none';
+                                                            }}
+                                                            onLoad={(e) => {
+                                                                console.log(`✅ Successfully loaded: ${imagePath}`);
+                                                            }}
+                                                        />
+                                                        <div className="image-placeholder-flex">
+                                                            <span style={{ fontSize: '2rem' }}>📷</span>
+                                                            <p style={{ margin: '0.5rem 0', fontSize: '14px', fontWeight: 'bold' }}>
+                                                                Question {q.qid}
+                                                            </p>
+                                                            <p style={{ margin: 0, fontSize: '12px', color: '#666' }}>
+                                                                {q.isCorrect ? '✅ Correct' : '❌ Incorrect'}
+                                                            </p>
+                                                            <p style={{ margin: '0.25rem 0', fontSize: '11px', color: '#999' }}>
+                                                                Your answer: {q.userAnswer} | Correct: {q.correctAnswer}
+                                                            </p>
+                                                        </div>
+                                                        <div className={`question-status-overlay ${q.isCorrect ? 'correct' : 'incorrect'}`}>
+                                                            <span className="status-icon-overlay">
+                                                                {q.isCorrect ? '✓' : '✗'}
+                                                            </span>
+                                                        </div>
                                                     </div>
                                                 </div>
-                                            </div>
-                                        ))}
+                                            );
+                                        })}
                                     </div>
                                 </div>
                             );
                         })}
+                    </div>
+                )}
+
+                {/* Question Detail Modal */}
+                {showQuestionModal && selectedQuestion && (
+                    <div className="modal-overlay" onClick={closeModal}>
+                        <div className="modal-content" onClick={(e) => e.stopPropagation()}>
+                            <div className="modal-header">
+                                <h3>Question Details</h3>
+                                <button className="modal-close" onClick={closeModal}>✕</button>
+                            </div>
+                            <div className="modal-body">
+                                <div className="modal-image-section">
+                                    <img
+                                        src={`/images/${selectedQuestion.qid}.jpg`}
+                                        alt="question"
+                                        className="modal-question-image"
+                                    />
+                                </div>
+                                <div className="modal-info-section">
+                                    <div className={`modal-status ${selectedQuestion.isCorrect ? 'correct' : 'incorrect'}`}>
+                                        <span className="modal-status-icon">
+                                            {selectedQuestion.isCorrect ? '✓' : '✗'}
+                                        </span>
+                                        <span className="modal-status-text">
+                                            {selectedQuestion.isCorrect ? 'Correct!' : 'Incorrect'}
+                                        </span>
+                                    </div>
+                                    <div className="modal-answers">
+                                        <div className="modal-answer-row">
+                                            <span className="answer-label">Your answer:</span>
+                                            <span className={`answer-badge ${selectedQuestion.isCorrect ? 'correct' : 'incorrect'}`}>
+                                                {selectedQuestion.userAnswer}
+                                            </span>
+                                        </div>
+                                        <div className="modal-answer-row">
+                                            <span className="answer-label">Correct answer:</span>
+                                            <span className="answer-badge correct">
+                                                {selectedQuestion.correctAnswer}
+                                            </span>
+                                        </div>
+                                    </div>
+                                    <div className="modal-placeholder">
+                                        <div className="future-feature">
+                                            <h4>Coming Soon 🚀</h4>
+                                            <ul>
+                                                <li>AI-powered explanation</li>
+                                                <li>Similar practice questions</li>
+                                                <li>Learning recommendations</li>
+                                            </ul>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
                     </div>
                 )}
             </div>

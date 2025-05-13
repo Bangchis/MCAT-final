@@ -1,0 +1,14 @@
+# Thư mục Node modules không cần gửi lên Docker daemon
+node_modules
+
+# Thư mục build (nếu có) để tránh copy nhầm
+build
+
+# Cảnh báo các file log, env, IDE
+npm-debug.log*
+yarn-debug.log*
+.yarn/*
+*.env
+
+# Git
+.git
