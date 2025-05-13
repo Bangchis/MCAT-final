@@ -318,7 +318,7 @@ estimate_theta_weighted <- function(administered, responses, mod) {
     if (n_items == 0) return(rnorm(n_dim, 0, 0.5))
     
     # Stronger exponential weights: more recent responses have much higher weight
-    weights <- exp(seq(-2, 0, length.out = n_items))  # Changed from -1 to -2
+    weights <- exp(seq(-1, 0, length.out = n_items))  # Changed from -1 to -2
     
     # Prepare response pattern
     full_resp <- rep(NA_integer_, length(valid_id))
@@ -331,7 +331,7 @@ estimate_theta_weighted <- function(administered, responses, mod) {
       response.pattern = rp_df,
       method = "MAP",  
       priorDist = "norm",
-      priorPar = list(mean = 0, var = 2),  # Reduced from 4 to 2 for stronger updates
+      priorPar = list(mean = 0, var = 1),  # Reduced from 4 to 2 for stronger updates
       QMC = TRUE,
       response.pattern.weights = weights,  # Apply weights directly
       TOL = 0.001,  # Tighter tolerance
@@ -342,7 +342,7 @@ estimate_theta_weighted <- function(administered, responses, mod) {
     new_theta <- as.numeric(theta_mat[1, 1:n_dim])
     
     # Adaptive learning rate: stronger updates early in the test
-    learning_rate <- min(0.5, 2 / sqrt(n_items))  # Starts at 0.5, decreases with more items
+    learning_rate <- 0.3  # Starts at 0.5, decreases with more items
     
     # If we have previous theta (from session), blend with learning rate
     if (exists("sess") && !is.null(sess$theta)) {

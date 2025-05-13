@@ -34,10 +34,40 @@ export function ResultsPage({ result }) {
     const [showQuestionDetails, setShowQuestionDetails] = useState(false);
     const [selectedQuestion, setSelectedQuestion] = useState(null);
     const [showQuestionModal, setShowQuestionModal] = useState(false);
+    // Add states for better image handling in question details
+    const [imagesLoaded, setImagesLoaded] = useState(new Set());
+    const [questionCardsVisible, setQuestionCardsVisible] = useState(false);
 
     useEffect(() => {
         setIsLoaded(true);
     }, []);
+
+    // Add delay for question cards animation when they become visible
+    useEffect(() => {
+        if (showQuestionDetails) {
+            const timer = setTimeout(() => {
+                setQuestionCardsVisible(true);
+            }, 100);
+            return () => clearTimeout(timer);
+        } else {
+            setQuestionCardsVisible(false);
+        }
+    }, [showQuestionDetails]);
+
+    const handleImageLoad = (questionId) => {
+        setImagesLoaded(prev => new Set([...prev, questionId]));
+    };
+
+    const handleImageError = (e, questionId) => {
+        console.error(`❌ Failed to load: ${questionId}.jpg`);
+        e.target.style.display = 'none';
+
+        // Show the placeholder
+        const placeholder = e.target.nextElementSibling;
+        if (placeholder && placeholder.classList.contains('image-placeholder-flex')) {
+            placeholder.style.display = 'flex';
+        }
+    };
 
     const handleQuestionClick = (question) => {
         setSelectedQuestion(question);
@@ -117,12 +147,6 @@ export function ResultsPage({ result }) {
         // Debug each subject's questions
         Object.entries(subjectStats).forEach(([subject, stat]) => {
             console.log(`Subject ${subject}: ${stat.questions.length} questions`, stat.questions);
-        });
-
-        // Calculate accuracy percentages
-        Object.keys(subjectStats).forEach(subject => {
-            const stat = subjectStats[subject];
-            stat.accuracy = Math.round((stat.correct / stat.total) * 100);
         });
 
         // Calculate overall stats
@@ -219,28 +243,6 @@ export function ResultsPage({ result }) {
             subjectNames
         };
     }, [result]);
-
-    // Create normal distribution data with shaded area
-    const createNormalDistribution = (userTheta) => {
-        const points = [];
-        const shadedPoints = [];
-        const range = 6; // -3 to 3 standard deviations
-        const steps = 200;
-
-        for (let i = 0; i <= steps; i++) {
-            const x = -range / 2 + (range * i / steps);
-            const y = Math.exp(-0.5 * x * x) / Math.sqrt(2 * Math.PI);
-
-            points.push({ x, y });
-
-            // Add to shaded area if below user's theta
-            if (x <= userTheta) {
-                shadedPoints.push({ x, y });
-            }
-        }
-
-        return { points, shadedPoints };
-    };
 
     if (!result || !stats) {
         return (
@@ -648,7 +650,7 @@ export function ResultsPage({ result }) {
                     </button>
                 </div>
 
-                {/* Detailed Question Analysis */}
+                {/* Detailed Question Analysis - FIXED SECTION */}
                 {showQuestionDetails && (
                     <div className="question-details slide-up">
                         <h3>📋 Detailed Question Analysis</h3>
@@ -683,7 +685,7 @@ export function ResultsPage({ result }) {
                                         {subjectInfo.name} ({stat.accuracy}% correct) - {stat.questions.length} questions
                                     </h4>
 
-                                    {/* Flexbox container for questions */}
+                                    {/* Fixed Flexbox container for questions */}
                                     <div className="question-flexbox">
                                         {stat.questions.map((q, idx) => {
                                             const imagePath = `/images/${q.qid}.jpg`;
@@ -691,22 +693,34 @@ export function ResultsPage({ result }) {
                                             console.log(`📍 Image path: ${imagePath}`);
 
                                             return (
-                                                <div key={`${subjectId}-${idx}`} className="question-card-flex">
+                                                <div
+                                                    key={`${subjectId}-${idx}`}
+                                                    className={`question-card-flex ${questionCardsVisible ? 'visible' : ''}`}
+                                                    style={{
+                                                        animationDelay: `${idx * 0.1}s`,
+                                                        opacity: questionCardsVisible ? 1 : 0,
+                                                        transform: questionCardsVisible ? 'translateY(0)' : 'translateY(20px)',
+                                                        transition: 'all 0.6s ease-out'
+                                                    }}
+                                                >
                                                     <div className="question-image-container">
                                                         <img
                                                             src={imagePath}
                                                             alt={`Question ${q.qid}`}
                                                             className={`question-image-interactive ${q.isCorrect ? 'correct' : 'incorrect'}`}
                                                             onClick={() => handleQuestionClick(q)}
-                                                            onError={(e) => {
-                                                                console.error(`❌ Failed to load: ${imagePath}`);
-                                                                e.target.style.display = 'none';
-                                                            }}
-                                                            onLoad={(e) => {
-                                                                console.log(`✅ Successfully loaded: ${imagePath}`);
-                                                            }}
+                                                            onError={(e) => handleImageError(e, q.qid)}
+                                                            onLoad={() => handleImageLoad(q.qid)}
+                                                            style={{ display: 'block' }}
                                                         />
-                                                        <div className="image-placeholder-flex">
+                                                        <div
+                                                            className="image-placeholder-flex"
+                                                            style={{
+                                                                display: 'none',
+                                                                cursor: 'pointer'
+                                                            }}
+                                                            onClick={() => handleQuestionClick(q)}
+                                                        >
                                                             <span style={{ fontSize: '2rem' }}>📷</span>
                                                             <p style={{ margin: '0.5rem 0', fontSize: '14px', fontWeight: 'bold' }}>
                                                                 Question {q.qid}
