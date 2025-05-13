@@ -1177,3 +1177,75 @@
         height: 150px;
     }
 }
+
+/* Additional CSS for Enhanced Modal - APPEND to existing CSS */
+
+/* Enhanced Modal Question Information */
+.modal-question-info {
+    background: #f8f9fa;
+    padding: 1.5rem;
+    border-radius: 8px;
+    margin-bottom: 1.5rem;
+}
+
+.modal-info-row {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 0.75rem 0;
+    border-bottom: 1px solid var(--border-color);
+}
+
+.modal-info-row:last-child {
+    border-bottom: none;
+}
+
+.info-label {
+    font-weight: 600;
+    color: var(--text-primary);
+    font-size: 1rem;
+}
+
+.difficulty-badge {
+    display: inline-flex;
+    align-items: center;
+    font-size: 1rem;
+    border: 1px solid currentColor;
+    border-radius: 6px;
+    transition: all 0.3s ease;
+}
+
+.difficulty-badge:hover {
+    transform: scale(1.05);
+}
+
+.category-text {
+    color: var(--text-primary);
+    font-weight: 500;
+    font-size: 1rem;
+    text-align: right;
+    max-width: 60%;
+}
+
+/* Responsive adjustments for modal */
+@media (max-width: 768px) {
+    .modal-content {
+        width: 95vw;
+        margin: 1rem;
+    }
+
+    .modal-info-row {
+        flex-direction: column;
+        align-items: flex-start;
+        gap: 0.5rem;
+    }
+
+    .category-text {
+        max-width: 100%;
+        text-align: left;
+    }
+
+    .difficulty-badge {
+        align-self: flex-start;
+    }
+}

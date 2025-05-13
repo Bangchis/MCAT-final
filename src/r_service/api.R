@@ -66,6 +66,23 @@ meta_df <- meta_df[match(valid_id, meta_df$QuestionId), ]
 correct_answers <- meta_df$CorrectAnswer
 subject_ids     <- meta_df$SubjectId
 
+# ---- Safe Metadata Access Function ----------------------------------------
+get_meta_value <- function(meta_df, item_idx, column_name) {
+  if (item_idx <= 0 || item_idx > nrow(meta_df)) {
+    return(NULL)
+  }
+  
+  value <- meta_df[[column_name]][item_idx]
+  
+  # Return NULL if empty, NA, or length 0
+  if (is.na(value) || length(value) == 0 || value == "") {
+    return(NULL)
+  }
+  
+  # Convert to character and return
+  as.character(value)
+}
+
 # ---- Extract IRT Parameters -----------------------------------------------
 tryCatch({
   coefs <- coef(mod, IRTpars = TRUE, simplify = FALSE)
@@ -448,13 +465,20 @@ function(req, theta0 = NULL) {
     category       = subject_ids[first_item],
     choices        = c("A","B","C","D"),
     correct_answer = correct_answers[first_item],
-    theta          = round(theta0, 3)
+    theta          = round(theta0, 3),
+    # USE SAFE ACCESS:
+    old_category   = get_meta_value(meta_df, first_item, "Old_category"),
+    subject_name   = get_meta_value(meta_df, first_item, "SuperCategory")
   )
   
-  # Convert to scalars
+  # Convert to scalars (auto_scalar handles NULL properly)
   for (key in c("session_id", "item_index", "question_id", "difficulty", "category", "correct_answer")) {
     out[[key]] <- auto_scalar(out[[key]])
   }
+  
+  # Handle nullable fields separately
+  if (!is.null(out$old_category)) out$old_category <- auto_scalar(out$old_category)
+  if (!is.null(out$subject_name)) out$subject_name <- auto_scalar(out$subject_name)
   
   out
 }
@@ -570,6 +594,15 @@ function(session_id, item_index, answer, elapsed_time = NULL) {
             # End session and save history
             update_item_history(sess$administered)
             
+            # Get arrays for finished session
+            difficulties_array <- sapply(sess$administered, function(i) {
+              if (i <= length(b_vals)) b_vals[i] else 0
+            })
+            
+            old_categories_array <- sapply(sess$administered, function(i) {
+              get_meta_value(meta_df, i, "Old_category")
+            })
+            
             out <- list(
               session_id = sid, 
               stage = sess$stage,
@@ -579,7 +612,9 @@ function(session_id, item_index, answer, elapsed_time = NULL) {
               responses = sess$responses,
               user_answers = sess$user_answers,
               subjects = sess$subjects,
-              correct_answers = correct_answers[sess$administered]
+              correct_answers = correct_answers[sess$administered],
+              difficulties = difficulties_array,
+              old_categories = old_categories_array
             )
             out$finished <- auto_scalar(out$finished)
             out$session_id <- auto_scalar(out$session_id)
@@ -612,6 +647,15 @@ function(session_id, item_index, answer, elapsed_time = NULL) {
           # End session and save history
           update_item_history(sess$administered)
           
+          # Get arrays for finished session
+          difficulties_array <- sapply(sess$administered, function(i) {
+            if (i <= length(b_vals)) b_vals[i] else 0
+          })
+          
+          old_categories_array <- sapply(sess$administered, function(i) {
+            get_meta_value(meta_df, i, "Old_category")
+          })
+          
           out <- list(
             session_id = sid, 
             stage = sess$stage,
@@ -621,7 +665,9 @@ function(session_id, item_index, answer, elapsed_time = NULL) {
             responses = sess$responses,
             user_answers = sess$user_answers,
             subjects = sess$subjects,
-            correct_answers = correct_answers[sess$administered]
+            correct_answers = correct_answers[sess$administered],
+            difficulties = difficulties_array,
+            old_categories = old_categories_array
           )
           out$finished <- auto_scalar(out$finished)
           out$session_id <- auto_scalar(out$session_id)
@@ -633,7 +679,7 @@ function(session_id, item_index, answer, elapsed_time = NULL) {
       }
     }
     
-    # Return next item
+    # Return next item for MMST stage
     out <- list(
       session_id     = sid,
       stage          = sess$stage,
@@ -645,8 +691,21 @@ function(session_id, item_index, answer, elapsed_time = NULL) {
       choices        = c("A","B","C","D"),
       correct_answer = correct_answers[next_item],
       theta          = round(sess$theta, 3),
-      finished       = FALSE
+      finished       = FALSE,
+      # USE SAFE ACCESS:
+      old_category   = get_meta_value(meta_df, next_item, "Old_category"),
+      subject_name   = get_meta_value(meta_df, next_item, "SuperCategory")
     )
+    
+    # Convert required fields to scalars
+    out$item_index  <- auto_scalar(out$item_index)
+    out$question_id <- auto_scalar(out$question_id)
+    out$finished    <- auto_scalar(out$finished)
+    
+    # Handle nullable fields
+    if (!is.null(out$old_category)) out$old_category <- auto_scalar(out$old_category)
+    if (!is.null(out$subject_name)) out$subject_name <- auto_scalar(out$subject_name)
+
   } else {
     # 4) Enhanced MCAT Phase Logic
     message("  -> in MCAT phase")
@@ -663,16 +722,27 @@ function(session_id, item_index, answer, elapsed_time = NULL) {
       # End session and save history
       update_item_history(sess$administered)
       
+      # Get arrays for finished session
+      difficulties_array <- sapply(sess$administered, function(i) {
+        if (i <= length(b_vals)) b_vals[i] else 0
+      })
+      
+      old_categories_array <- sapply(sess$administered, function(i) {
+        get_meta_value(meta_df, i, "Old_category")
+      })
+      
       out <- list(
-        session_id   = sid,
-        stage        = sess$stage,
-        theta        = round(sess$theta, 3),
-        finished     = TRUE,
+        session_id = sid, 
+        stage = sess$stage,
+        theta = round(sess$theta, 3), 
+        finished = TRUE,
         administered = sess$administered,
-        responses    = sess$responses,
+        responses = sess$responses,
         user_answers = sess$user_answers,
-        subjects     = sess$subjects,
-        correct_answers = correct_answers[sess$administered]
+        subjects = sess$subjects,
+        correct_answers = correct_answers[sess$administered],
+        difficulties = difficulties_array,
+        old_categories = old_categories_array
       )
       out$finished <- auto_scalar(out$finished)
       return(out)
@@ -689,6 +759,15 @@ function(session_id, item_index, answer, elapsed_time = NULL) {
         # End session and save history
         update_item_history(sess$administered)
         
+        # Get arrays for finished session
+        difficulties_array <- sapply(sess$administered, function(i) {
+          if (i <= length(b_vals)) b_vals[i] else 0
+        })
+        
+        old_categories_array <- sapply(sess$administered, function(i) {
+          get_meta_value(meta_df, i, "Old_category")
+        })
+        
         out <- list(
           session_id = sid, 
           stage = sess$stage,
@@ -698,7 +777,9 @@ function(session_id, item_index, answer, elapsed_time = NULL) {
           responses = sess$responses,
           user_answers = sess$user_answers,
           subjects = sess$subjects,
-          correct_answers = correct_answers[sess$administered]
+          correct_answers = correct_answers[sess$administered],
+          difficulties = difficulties_array,
+          old_categories = old_categories_array
         )
         out$finished <- auto_scalar(out$finished)
         out$session_id <- auto_scalar(out$session_id)
@@ -724,6 +805,15 @@ function(session_id, item_index, answer, elapsed_time = NULL) {
       # End session and save history
       update_item_history(sess$administered)
       
+      # Get arrays for finished session
+      difficulties_array <- sapply(sess$administered, function(i) {
+        if (i <= length(b_vals)) b_vals[i] else 0
+      })
+      
+      old_categories_array <- sapply(sess$administered, function(i) {
+        get_meta_value(meta_df, i, "Old_category")
+      })
+      
       out <- list(
         session_id = sid, 
         stage = sess$stage,
@@ -733,7 +823,9 @@ function(session_id, item_index, answer, elapsed_time = NULL) {
         responses = sess$responses,
         user_answers = sess$user_answers,
         subjects = sess$subjects,
-        correct_answers = correct_answers[sess$administered]
+        correct_answers = correct_answers[sess$administered],
+        difficulties = difficulties_array,
+        old_categories = old_categories_array
       )
       out$finished <- auto_scalar(out$finished)
       return(out)
@@ -760,6 +852,15 @@ function(session_id, item_index, answer, elapsed_time = NULL) {
       # End session and save history  
       update_item_history(sess$administered)
       
+      # Get arrays for finished session
+      difficulties_array <- sapply(sess$administered, function(i) {
+        if (i <= length(b_vals)) b_vals[i] else 0
+      })
+      
+      old_categories_array <- sapply(sess$administered, function(i) {
+        get_meta_value(meta_df, i, "Old_category")
+      })
+      
       out <- list(
         session_id = sid, 
         stage = sess$stage,
@@ -769,7 +870,9 @@ function(session_id, item_index, answer, elapsed_time = NULL) {
         responses = sess$responses,
         user_answers = sess$user_answers,
         subjects = sess$subjects,
-        correct_answers = correct_answers[sess$administered]
+        correct_answers = correct_answers[sess$administered],
+        difficulties = difficulties_array,
+        old_categories = old_categories_array
       )
       out$finished <- auto_scalar(out$finished)
       return(out)
@@ -777,6 +880,7 @@ function(session_id, item_index, answer, elapsed_time = NULL) {
     
     message(sprintf("  -> next CAT item=%d (difficulty=%.3f)", best_item, b_vals[best_item]))
     
+    # Return next item for MCAT stage
     out <- list(
       session_id     = sid,
       stage          = sess$stage,
@@ -788,14 +892,21 @@ function(session_id, item_index, answer, elapsed_time = NULL) {
       choices        = c("A","B","C","D"),
       correct_answer = correct_answers[best_item],
       theta          = round(sess$theta, 3),
-      finished       = FALSE
+      finished       = FALSE,
+      # USE SAFE ACCESS:
+      old_category   = get_meta_value(meta_df, best_item, "Old_category"),
+      subject_name   = get_meta_value(meta_df, best_item, "SuperCategory")
     )
+    
+    # Convert required fields to scalars
+    out$item_index  <- auto_scalar(out$item_index)
+    out$question_id <- auto_scalar(out$question_id)
+    out$finished    <- auto_scalar(out$finished)
+    
+    # Handle nullable fields
+    if (!is.null(out$old_category)) out$old_category <- auto_scalar(out$old_category)
+    if (!is.null(out$subject_name)) out$subject_name <- auto_scalar(out$subject_name)
   }
-  
-  # Convert to scalars
-  out$item_index  <- auto_scalar(out$item_index)
-  out$question_id <- auto_scalar(out$question_id)
-  out$finished    <- auto_scalar(out$finished)
   
   # Enhanced logging output
   cat("\n========== Next Question ==========\n")

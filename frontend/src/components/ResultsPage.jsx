@@ -34,7 +34,6 @@ export function ResultsPage({ result }) {
     const [showQuestionDetails, setShowQuestionDetails] = useState(false);
     const [selectedQuestion, setSelectedQuestion] = useState(null);
     const [showQuestionModal, setShowQuestionModal] = useState(false);
-    // Add states for better image handling in question details
     const [imagesLoaded, setImagesLoaded] = useState(new Set());
     const [questionCardsVisible, setQuestionCardsVisible] = useState(false);
 
@@ -79,6 +78,33 @@ export function ResultsPage({ result }) {
         setSelectedQuestion(null);
     };
 
+    // Helper function to get difficulty level description
+    const getDifficultyLevel = (difficulty) => {
+        const diffValue = parseFloat(difficulty);
+        if (diffValue < -1.5) return { label: 'Very Easy', color: '#10B981', bgColor: '#D1FAE5' };
+        if (diffValue < -0.5) return { label: 'Easy', color: '#059669', bgColor: '#A7F3D0' };
+        if (diffValue < 0.5) return { label: 'Medium', color: '#0891B2', bgColor: '#CCFBF1' };
+        if (diffValue < 1.5) return { label: 'Hard', color: '#DC2626', bgColor: '#FEE2E2' };
+        return { label: 'Very Hard', color: '#991B1B', bgColor: '#FCA5A5' };
+    };
+
+    // Helper function to parse and format category list
+    const parseDetailCategory = (oldCategory) => {
+        if (!oldCategory) return 'Unknown Category';
+        try {
+            // Parse the JSON-like string format: "['Number', 'Indices, Powers and Roots']"
+            const parsed = JSON.parse(oldCategory.replace(/'/g, '"'));
+            return parsed.join(' → ');
+        } catch (error) {
+            // Fallback: try to extract content between quotes
+            const matches = oldCategory.match(/'([^']+)'/g);
+            if (matches) {
+                return matches.map(match => match.replace(/'/g, '')).join(' → ');
+            }
+            return oldCategory;
+        }
+    };
+
     // Calculate detailed statistics
     const stats = useMemo(() => {
         if (!result) return null;
@@ -88,6 +114,9 @@ export function ResultsPage({ result }) {
         const userAnswers = result.user_answers || [];
         const subjects = result.subjects || [];
         const correctAnswers = result.correct_answers || [];
+        // Assume backend will provide these
+        const difficulties = result.difficulties || [];
+        const oldCategories = result.old_categories || [];
 
         console.log('ResultsPage - Processing data:', {
             administered: administered.length,
@@ -129,7 +158,9 @@ export function ResultsPage({ result }) {
                 userAnswer: userAnswerLetter,
                 correctAnswer: correctAnswerLetter,
                 subject,
-                index: idx
+                index: idx,
+                difficulty: difficulties[idx] || 0,
+                oldCategory: oldCategories[idx] || null
             };
 
             subjectStats[subject].questions.push(questionDetail);
@@ -140,13 +171,6 @@ export function ResultsPage({ result }) {
         Object.keys(subjectStats).forEach(subject => {
             const stat = subjectStats[subject];
             stat.accuracy = Math.round((stat.correct / stat.total) * 100);
-        });
-
-        console.log('ResultsPage - Subject stats after processing:', subjectStats);
-
-        // Debug each subject's questions
-        Object.entries(subjectStats).forEach(([subject, stat]) => {
-            console.log(`Subject ${subject}: ${stat.questions.length} questions`, stat.questions);
         });
 
         // Calculate overall stats
@@ -615,28 +639,6 @@ export function ResultsPage({ result }) {
                     </div>
                 </div>
 
-                {/* Debug Raw Data */}
-                {process.env.NODE_ENV === 'development' && (
-                    <div style={{
-                        background: '#f8f9fa',
-                        padding: '1rem',
-                        margin: '1rem 0',
-                        borderRadius: '8px',
-                        fontSize: '12px'
-                    }}>
-                        <h4>Raw Result Data:</h4>
-                        <pre style={{ overflow: 'auto', maxHeight: '200px' }}>
-                            {JSON.stringify({
-                                administered: result.administered,
-                                subjects: result.subjects,
-                                responses: result.responses,
-                                user_answers: result.user_answers,
-                                correct_answers: result.correct_answers
-                            }, null, 2)}
-                        </pre>
-                    </div>
-                )}
-
                 {/* Question Details Toggle */}
                 <div className="details-toggle">
                     <button
@@ -655,28 +657,8 @@ export function ResultsPage({ result }) {
                     <div className="question-details slide-up">
                         <h3>📋 Detailed Question Analysis</h3>
 
-                        {/* Debug Information */}
-                        {process.env.NODE_ENV === 'development' && (
-                            <div style={{ background: '#f0f0f0', padding: '10px', marginBottom: '20px', borderRadius: '5px' }}>
-                                <h4>Debug Info:</h4>
-                                <p>Total administered: {result.administered?.length || 0}</p>
-                                <p>Total responses: {result.responses?.length || 0}</p>
-                                <p>Total subjects: {result.subjects?.length || 0}</p>
-                                <p>Total user_answers: {result.user_answers?.length || 0}</p>
-                                <p>First few subjects: {JSON.stringify(result.subjects?.slice(0, 5))}</p>
-                                <p>First few administered: {JSON.stringify(result.administered?.slice(0, 5))}</p>
-                                <p>Subject stats keys: {JSON.stringify(Object.keys(stats.subjectStats))}</p>
-                                <p>Questions per subject: {JSON.stringify(
-                                    Object.entries(stats.subjectStats).map(([key, stat]) =>
-                                        `${key}: ${stat.questions.length} questions`
-                                    )
-                                )}</p>
-                            </div>
-                        )}
-
                         {Object.entries(stats.subjectStats).map(([subjectId, stat]) => {
                             const subjectInfo = stats.subjectNames[subjectId] || { name: `Subject ${subjectId}`, icon: '📝', color: '#6B7280' };
-                            console.log(`Rendering subject ${subjectId}:`, stat);
 
                             return (
                                 <div key={subjectId} className="question-subject-group">
@@ -689,8 +671,6 @@ export function ResultsPage({ result }) {
                                     <div className="question-flexbox">
                                         {stat.questions.map((q, idx) => {
                                             const imagePath = `/images/${q.qid}.jpg`;
-                                            console.log(`📸 Question ${idx} for subject ${subjectId}:`, q);
-                                            console.log(`📍 Image path: ${imagePath}`);
 
                                             return (
                                                 <div
@@ -748,7 +728,7 @@ export function ResultsPage({ result }) {
                     </div>
                 )}
 
-                {/* Question Detail Modal */}
+                {/* Enhanced Question Detail Modal */}
                 {showQuestionModal && selectedQuestion && (
                     <div className="modal-overlay" onClick={closeModal}>
                         <div className="modal-content" onClick={(e) => e.stopPropagation()}>
@@ -765,6 +745,7 @@ export function ResultsPage({ result }) {
                                     />
                                 </div>
                                 <div className="modal-info-section">
+                                    {/* Question Status */}
                                     <div className={`modal-status ${selectedQuestion.isCorrect ? 'correct' : 'incorrect'}`}>
                                         <span className="modal-status-icon">
                                             {selectedQuestion.isCorrect ? '✓' : '✗'}
@@ -773,6 +754,8 @@ export function ResultsPage({ result }) {
                                             {selectedQuestion.isCorrect ? 'Correct!' : 'Incorrect'}
                                         </span>
                                     </div>
+
+                                    {/* Answers Section */}
                                     <div className="modal-answers">
                                         <div className="modal-answer-row">
                                             <span className="answer-label">Your answer:</span>
@@ -787,6 +770,40 @@ export function ResultsPage({ result }) {
                                             </span>
                                         </div>
                                     </div>
+
+                                    {/* Enhanced Question Information */}
+                                    <div className="modal-question-info">
+                                        {/* Difficulty Level */}
+                                        {selectedQuestion.difficulty !== undefined && (
+                                            <div className="modal-info-row">
+                                                <span className="info-label">Difficulty Level:</span>
+                                                <span className="difficulty-badge" style={{
+                                                    backgroundColor: getDifficultyLevel(selectedQuestion.difficulty).bgColor,
+                                                    color: getDifficultyLevel(selectedQuestion.difficulty).color,
+                                                    padding: '0.5rem 1rem',
+                                                    borderRadius: '6px',
+                                                    fontWeight: '600'
+                                                }}>
+                                                    {getDifficultyLevel(selectedQuestion.difficulty).label}
+                                                    <span style={{ marginLeft: '0.5rem', fontSize: '0.875rem', opacity: 0.8 }}>
+                                                        ({parseFloat(selectedQuestion.difficulty).toFixed(2)})
+                                                    </span>
+                                                </span>
+                                            </div>
+                                        )}
+
+                                        {/* Detail Category */}
+                                        {selectedQuestion.oldCategory && (
+                                            <div className="modal-info-row">
+                                                <span className="info-label">Detail Category:</span>
+                                                <span className="category-text">
+                                                    {parseDetailCategory(selectedQuestion.oldCategory)}
+                                                </span>
+                                            </div>
+                                        )}
+                                    </div>
+
+                                    {/* Future Features */}
                                     <div className="modal-placeholder">
                                         <div className="future-feature">
                                             <h4>Coming Soon 🚀</h4>
