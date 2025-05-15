@@ -6,14 +6,14 @@
 </head>
 <body>
 
-  <img src= "https://github.com/Namtk214/Collaborative-Computerized-Adaptive-Testing/blob/main/sigmaTom.jpg">
-  <h1>CCAT - Collaborative Computerized Adaptive Testing</h1>
+  <img src= "https://github.com/Namtk214/Multidimensional-Computerized-Adaptive-Testing/blob/main/sigmaTom.jpg">
+  <h1>MCAT - Multidimensional Computerized Adaptive Testing</h1>
 
   <h2>Table of Contents</h2>
   <ol>
     <li><a href="#gioi-thieu">Giới thiệu về dự án</a></li>
-    <li><a href="#ccat">CCAT - Collaborative Computerized Adaptive Testing</a></li>
-    <li><a href="#danh-gia">Đánh giá về thuật toán CCAT</a></li>
+    <li><a href="#MCAT">MCAT - Multidimensional Computerized Adaptive Testing</a></li>
+    <li><a href="#danh-gia">Đánh giá về thuật toán MCAT</a></li>
     <li><a href="#tich-hop-llm">Tích hợp LLM</a></li>
     <li><a href="#chay-local">Cách để chạy local</a></li>
     <li><a href="#huong-dan">Hướng dẫn người dùng sử dụng ứng dụng</a></li>
@@ -24,7 +24,7 @@
   <hr>
 
   <h2 id="gioi-thieu">1. Giới thiệu về dự án</h2>
-  <p>Dự án CCAT là hệ thống kiểm tra thích ứng giúp đánh giá năng lực của học sinh dựa trên các bài kiểm tra được cá nhân hóa. Hệ thống nhằm tối ưu hóa quá trình đánh giá và cải thiện trải nghiệm học tập.</p>
+  <p>Dự án MCAT là hệ thống kiểm tra thích ứng giúp đánh giá năng lực của học sinh dựa trên các bài kiểm tra được cá nhân hóa. Hệ thống nhằm tối ưu hóa quá trình đánh giá và cải thiện trải nghiệm học tập.</p>
   <p>là một hệ thống kiểm tra thích ứng theo thời gian thực, được xây dựng dựa trên lý thuyết IRT và tối ưu hóa bằng thuật toán MAP. Khi bắt đầu bài thi, hệ thống giả định tất cả học sinh có trình độ ngang nhau và đưa ra câu hỏi trung bình để đánh giá năng lực ban đầu. Sau mỗi câu trả lời, năng lực học sinh được cập nhật và câu hỏi tiếp theo được chọn sao cho phù hợp – vừa sức, không quá dễ hay quá khó.</p>
   
   <p>Hệ thống còn tích hợp mô hình ngôn ngữ lớn (LLM) kết hợp với RAG để phản hồi cá nhân hóa. Khi học sinh làm sai, hệ thống không chỉ đưa ra đáp án đúng mà còn giải thích sát với chương trình học, đảm bảo không bị “bịa” thông tin.</p>
@@ -35,25 +35,25 @@
 Website tích hợp nhiều chức năng như đăng nhập học sinh – giáo viên, theo dõi tiến trình học, kho đề luyện phong phú, bài giảng video kết hợp chatbot trợ giảng, và đặc biệt là hệ thống làm bài kiểm tra thích ứng. Dựa trên mô hình IRT (Item Response Theory) và công nghệ LLM và RAG, website không chỉ lựa chọn câu hỏi phù hợp mà còn cung cấp phản hồi cá nhân hóa, hỗ trợ học sinh học đúng trọng tâm và hiệu quả hơn.</p>
   <hr>
 
-  <h2 id="ccat">2. CCAT - Collaborative Computerized Adaptive Testing</h2>
+  <h2 id="MCAT">2. MCAT - Multidimensional Computerized Adaptive Testing</h2>
   <p>Dự án xây dựng một hệ thống giúp đánh giá chính xác trình độ học sinh bằng
-Collaborative Computerized Adaptive Testing (CCAT) kết hợp với mô hình ngôn
+Multidimensional Computerized Adaptive Testing (MCAT) kết hợp với mô hình ngôn
 ngữ lớn (LLM) để hỗ trợ hỏi đáp. Hệ thống giúp cá nhân hóa lộ trình học tập và hỗ
 trợ học sinh trong việc luyện tập kiến thức dễ dàng hơn.</p>
 
-<p>CCAT là ứng dụng tiên phong giúp trung tâm luyện thi cá nhân hóa việc học tập
+<p>MCAT là ứng dụng tiên phong giúp trung tâm luyện thi cá nhân hóa việc học tập
 của học sinh. Và các trung tâm chúng em nói đến ở đây chính là các trung tâm ôn
 thi các bài thi chuẩn hoá trong nước lẫn ngoài nước như luyện thi TSA, ĐGNL,
-SAT, GMAT, GRE. Với các trung tâm này, CCAT sẽ là công cụ tuyệt vời để kiểm
+SAT, GMAT, GRE. Với các trung tâm này, MCAT sẽ là công cụ tuyệt vời để kiểm
 soát trình độ học sinh và mở rộng quy mô. Còn với học sinh thì hệ thống này sẽ cá
 nhân hóa trải nghiệm học tập, cải thiện hiệu quả học tập và gây bớt nhàm chán..</p>
 
-<p>Nhờ tích hợp mô hình ngôn ngữ lớn (LLM) và kỹ thuật RAG (Retrieval-Augmented Generation), CCAT có khả năng nhận biết học sinh yếu ở phần nào, ghi nhớ tiến trình học tập và đưa ra phản hồi cá nhân hóa. Khi học sinh trả lời sai, hệ thống sẽ không chỉ đưa ra đáp án đúng mà còn giải thích theo đúng chương trình học đã định.</p>
+<p>Nhờ tích hợp mô hình ngôn ngữ lớn (LLM) và kỹ thuật RAG (Retrieval-Augmented Generation), MCAT có khả năng nhận biết học sinh yếu ở phần nào, ghi nhớ tiến trình học tập và đưa ra phản hồi cá nhân hóa. Khi học sinh trả lời sai, hệ thống sẽ không chỉ đưa ra đáp án đúng mà còn giải thích theo đúng chương trình học đã định.</p>
 
   <hr>
 
-  <h2 id="danh-gia">3. Đánh giá về thuật toán CCAT</h2>
-  <p>Thuật toán CCAT phân tích độ khó của các câu hỏi và kết quả của các bài kiểm tra trước đó để liên tục hiệu chỉnh bài kiểm tra hiện tại. Việc đánh giá này giúp cá nhân hóa quá trình kiểm tra, đảm bảo rằng mỗi bài kiểm tra phản ánh đúng khả năng của từng học sinh.</p>
+  <h2 id="danh-gia">3. Đánh giá về thuật toán MCAT</h2>
+  <p>Thuật toán MCAT phân tích độ khó của các câu hỏi và kết quả của các bài kiểm tra trước đó để liên tục hiệu chỉnh bài kiểm tra hiện tại. Việc đánh giá này giúp cá nhân hóa quá trình kiểm tra, đảm bảo rằng mỗi bài kiểm tra phản ánh đúng khả năng của từng học sinh.</p>
 
   <h3>So sánh kết quả quả</h3>
   <p>Our model achieves the following performance on:</p>
@@ -113,7 +113,7 @@ nhân hóa trải nghiệm học tập, cải thiện hiệu quả học tập v
         <td>0.8958/0.8961</td>
       </tr>
       <tr>
-        <td>CCAT</td>
+        <td>MCAT</td>
         <td>0.7982/<strong>0.8149</strong></td>
         <td>0.8561/<strong>0.8635</strong></td>
         <td>0.8832/<strong>0.8851</strong></td>
@@ -178,7 +178,7 @@ nhân hóa trải nghiệm học tập, cải thiện hiệu quả học tập v
         <td>0.9104</td>
       </tr>
       <tr>
-        <td>CCAT</td>
+        <td>MCAT</td>
         <td><strong>0.8476</strong></td>
         <td><strong>0.8839</strong></td>
         <td><strong>0.9013</strong></td>
@@ -197,7 +197,7 @@ nhân hóa trải nghiệm học tập, cải thiện hiệu quả học tập v
   <h2 id="chay-local">5. Cách để chạy local</h2>
   <p>Dưới đây là hướng dẫn cài đặt và chạy dự án trên máy tính cá nhân:</p>
   <h3>Sơ đồ hệ thống</h3>
-  <img src = "https://github.com/Namtk214/Collaborative-Computerized-Adaptive-Testing/blob/main/sys%20des.png">
+  <img src = "https://github.com/Namtk214/Multidimensional-Computerized-Adaptive-Testing/blob/main/sys%20des.png">
 
   <h3>5.1. Chạy giao diện người dùng (UI - React)</h3>
   <pre><code class="language-bash">
@@ -205,8 +205,8 @@ npm start
 </code></pre>
   <p>Giao diện React sẽ được khởi chạy tại: <a href="http://localhost:5000" target="_blank">http://localhost:5173</a></p>
 
-  <h3>5.2. Chạy Backend chính (CCAT)</h3>
-  <pre><code class="language-bash">cd CCCAT
+  <h3>5.2. Chạy Backend chính (MCAT)</h3>
+  <pre><code class="language-bash">cd CMCAT
 pip install -r requirements.txt
 python main.py --reload</code></pre>
   <p>Backend sẽ chạy tại: <a href="http://localhost:5000" target="_blank">http://localhost:8000</a></p>
@@ -309,7 +309,7 @@ python app.py</code></pre>
     Đăng ký hoặc đăng nhập bằng tài khoản dành cho học sinh hoặc giáo viên.
     <br>
     <img 
-      src="https://raw.githubusercontent.com/Namtk214/Collaborative-Computerized-Adaptive-Testing/main/image/%E1%BA%A2nh%20ch%E1%BB%A5p%20m%C3%A0n%20h%C3%ACnh%202025-04-13%20020655.png" 
+      src="https://raw.githubusercontent.com/Namtk214/Multidimensional-Computerized-Adaptive-Testing/main/image/%E1%BA%A2nh%20ch%E1%BB%A5p%20m%C3%A0n%20h%C3%ACnh%202025-04-13%20020655.png" 
       alt="Ảnh 1: Giao diện đăng nhập" 
       style="max-width: 100%;"
     >
@@ -322,7 +322,7 @@ python app.py</code></pre>
         Khi nhấn vào <em>Course</em>, giao diện các khóa học sẽ hiển thị.
         <br>
         <img 
-          src="https://raw.githubusercontent.com/Namtk214/Collaborative-Computerized-Adaptive-Testing/main/image/%E1%BA%A2nh%20ch%E1%BB%A5p%20m%C3%A0n%20h%C3%ACnh%202025-04-13%20021027.png" 
+          src="https://raw.githubusercontent.com/Namtk214/Multidimensional-Computerized-Adaptive-Testing/main/image/%E1%BA%A2nh%20ch%E1%BB%A5p%20m%C3%A0n%20h%C3%ACnh%202025-04-13%20021027.png" 
           alt="Ảnh 2: Giao diện danh sách khóa học" 
           style="max-width: 100%;"
         >
@@ -331,13 +331,13 @@ python app.py</code></pre>
         Khi chọn một khóa học, bạn sẽ được chuyển đến trang hiển thị video bài giảng và chatbot hỗ trợ.
         <br>
         <img 
-          src="https://raw.githubusercontent.com/Namtk214/Collaborative-Computerized-Adaptive-Testing/main/%E1%BA%A2nh%20video.png" 
+          src="https://raw.githubusercontent.com/Namtk214/Multidimensional-Computerized-Adaptive-Testing/main/%E1%BA%A2nh%20video.png" 
           alt="Ảnh 3: Video bài giảng" 
           style="max-width: 100%;"
         >
         <br>
         <img 
-          src="https://raw.githubusercontent.com/Namtk214/Collaborative-Computerized-Adaptive-Testing/main/AI.png" 
+          src="https://raw.githubusercontent.com/Namtk214/Multidimensional-Computerized-Adaptive-Testing/main/AI.png" 
           alt="Ảnh 4: Chatbot hỗ trợ" 
           style="max-width: 100%;"
         >
@@ -350,7 +350,7 @@ python app.py</code></pre>
     Khi bấm vào dashboard, giao diện sẽ hiển thị như hình bên dưới:
     <br>
     <img 
-      src="https://raw.githubusercontent.com/Namtk214/Collaborative-Computerized-Adaptive-Testing/main/%E1%BA%A2nh%20ch%E1%BB%A5p%20m%C3%A0n%20h%C3%ACnh%202025-04-13%20025605.png" 
+      src="https://raw.githubusercontent.com/Namtk214/Multidimensional-Computerized-Adaptive-Testing/main/%E1%BA%A2nh%20ch%E1%BB%A5p%20m%C3%A0n%20h%C3%ACnh%202025-04-13%20025605.png" 
       alt="Ảnh 5: Giao diện dashboard" 
       style="max-width: 100%;"
     >
@@ -363,7 +363,7 @@ python app.py</code></pre>
     - Biểu đồ phân phối chuẩn: thể hiện điểm số của học sinh đó so với các 'anchor student' đã được hệ thống thu thập trước đó.
     <br>
     <img 
-      src="https://raw.githubusercontent.com/Namtk214/Collaborative-Computerized-Adaptive-Testing/main/b%C3%A0i%20l%C3%A0m.png" 
+      src="https://raw.githubusercontent.com/Namtk214/Multidimensional-Computerized-Adaptive-Testing/main/b%C3%A0i%20l%C3%A0m.png" 
       alt="Ảnh 6: Giao diện bài test đánh giá năng lực" 
       style="max-width: 100%;"
     >
@@ -376,7 +376,7 @@ python app.py</code></pre>
   <p>Nếu bạn sử dụng hoặc chia sẻ dự án, vui lòng trích dẫn theo thông tin sau:</p>
   <pre><code>
 Tác giả: Cộng đồng ChatGPT
-Dự án: CCAT - Collaborative Computerized Adaptive Testing
+Dự án: MCAT - Multidimensional Computerized Adaptive Testing
   </code></pre>
 
 </body>
