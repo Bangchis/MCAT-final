@@ -1,7 +1,12 @@
 name: Build and Push Docker Images
 
 on:
-  [workflow_dispatch]
+#   [workflow_dispatch]
+    push:
+        branches: [ "maintung" ]
+    pull_request:
+        branches: [ "maintung" ]
+
 
 jobs:
   build-and-push:
