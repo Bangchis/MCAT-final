@@ -1,10 +1,11 @@
+version: "3.8"
 services:
   # R Service (Plumber API)
   r-service:
     build:
       context: ./src/r_service
       dockerfile: Dockerfile
-    container_name: mhcat-r-service
+    container_name: codemaivanngu/mhcat-r-service:latest
     ports:
       - "8000:8000"
     volumes:
@@ -21,7 +22,7 @@ services:
     build:
       context: ./src/backend
       dockerfile: Dockerfile
-    container_name: mhcat-backend
+    container_name: codemaivanngu/mhcat-backend:latest
     ports:
       - "5000:5000"
     volumes:
@@ -41,7 +42,7 @@ services:
     build:
       context: ./frontend
       dockerfile: Dockerfile
-    container_name: mhcat-frontend
+    container_name: codemaivanngu/mhcat-frontend:latest
     ports:
       - "80:80"
     environment:
@@ -62,35 +63,3 @@ networks:
 volumes:
   data:
     driver: local
-
-# version: "3.8"
-
-# services:
-#   r_service:
-#     build: ./src/r_service
-#     ports:
-#       - "8000:8000"
-#     # mount toàn bộ data vào /data bên trong container
-#     volumes:
-#       - ./data:/data:ro
-
-#   backend:
-#     build: ./src/backend
-#     ports:
-#       - "5000:5000"
-#     depends_on:
-#       - r_service
-#     # mount data vào cùng vị trí /data để Flask serve hình ảnh và đọc CSV
-#     volumes:
-#       - ./data:/data:ro
-#     environment:
-#       # trỏ tới service r_service trong network của compose
-#       - PLUMBER_URL=http://r_service:8000
-#       - FLASK_ENV=development
-
-#   frontend:
-#     build: ./frontend
-#     ports:
-#       - "3000:80"
-#     depends_on:
-#       - backend
