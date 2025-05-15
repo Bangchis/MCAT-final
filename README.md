@@ -6,13 +6,13 @@
 </head>
 <body>
 
-  <img src= "https://github.com/Namtk214/Multidimensional-Computerized-Adaptive-Testing/blob/main/sigmaTom.jpg">
+  <img src= "https://github.com/Namtk214/Collaborative-Computerized-Adaptive-Testing/blob/main/sigmaTom.jpg">
   <h1>MCAT - Multidimensional Computerized Adaptive Testing</h1>
 
   <h2>Table of Contents</h2>
   <ol>
     <li><a href="#gioi-thieu">Giới thiệu về dự án</a></li>
-    <li><a href="#MCAT">MCAT - Multidimensional Computerized Adaptive Testing</a></li>
+    <li><a href="#ccat">MCAT - Multidimensional Computerized Adaptive Testing</a></li>
     <li><a href="#danh-gia">Đánh giá về thuật toán MCAT</a></li>
     <li><a href="#tich-hop-llm">Tích hợp LLM</a></li>
     <li><a href="#chay-local">Cách để chạy local</a></li>
@@ -35,9 +35,9 @@
 Website tích hợp nhiều chức năng như đăng nhập học sinh – giáo viên, theo dõi tiến trình học, kho đề luyện phong phú, bài giảng video kết hợp chatbot trợ giảng, và đặc biệt là hệ thống làm bài kiểm tra thích ứng. Dựa trên mô hình IRT (Item Response Theory) và công nghệ LLM và RAG, website không chỉ lựa chọn câu hỏi phù hợp mà còn cung cấp phản hồi cá nhân hóa, hỗ trợ học sinh học đúng trọng tâm và hiệu quả hơn.</p>
   <hr>
 
-  <h2 id="MCAT">2. MCAT - Multidimensional Computerized Adaptive Testing</h2>
+  <h2 id="ccat">2. MCAT - Multidimensional Computerized Adaptive Testing</h2>
   <p>Dự án xây dựng một hệ thống giúp đánh giá chính xác trình độ học sinh bằng
-Multidimensional Computerized Adaptive Testing (MCAT) kết hợp với mô hình ngôn
+Collaborative Computerized Adaptive Testing (MCAT) kết hợp với mô hình ngôn
 ngữ lớn (LLM) để hỗ trợ hỏi đáp. Hệ thống giúp cá nhân hóa lộ trình học tập và hỗ
 trợ học sinh trong việc luyện tập kiến thức dễ dàng hơn.</p>
 
@@ -197,7 +197,7 @@ nhân hóa trải nghiệm học tập, cải thiện hiệu quả học tập v
   <h2 id="chay-local">5. Cách để chạy local</h2>
   <p>Dưới đây là hướng dẫn cài đặt và chạy dự án trên máy tính cá nhân:</p>
   <h3>Sơ đồ hệ thống</h3>
-  <img src = "https://github.com/Namtk214/Multidimensional-Computerized-Adaptive-Testing/blob/main/sys%20des.png">
+  <img src = "https://github.com/Namtk214/Collaborative-Computerized-Adaptive-Testing/blob/main/sys%20des.png">
 
   <h3>5.1. Chạy giao diện người dùng (UI - React)</h3>
   <pre><code class="language-bash">
@@ -206,7 +206,7 @@ npm start
   <p>Giao diện React sẽ được khởi chạy tại: <a href="http://localhost:5000" target="_blank">http://localhost:5173</a></p>
 
   <h3>5.2. Chạy Backend chính (MCAT)</h3>
-  <pre><code class="language-bash">cd CMCAT
+  <pre><code class="language-bash">cd CCCAT
 pip install -r requirements.txt
 python main.py --reload</code></pre>
   <p>Backend sẽ chạy tại: <a href="http://localhost:5000" target="_blank">http://localhost:8000</a></p>
@@ -309,7 +309,7 @@ python app.py</code></pre>
     Đăng ký hoặc đăng nhập bằng tài khoản dành cho học sinh hoặc giáo viên.
     <br>
     <img 
-      src="https://raw.githubusercontent.com/Namtk214/Multidimensional-Computerized-Adaptive-Testing/main/image/%E1%BA%A2nh%20ch%E1%BB%A5p%20m%C3%A0n%20h%C3%ACnh%202025-04-13%20020655.png" 
+      src="https://raw.githubusercontent.com/Namtk214/Collaborative-Computerized-Adaptive-Testing/main/image/%E1%BA%A2nh%20ch%E1%BB%A5p%20m%C3%A0n%20h%C3%ACnh%202025-04-13%20020655.png" 
       alt="Ảnh 1: Giao diện đăng nhập" 
       style="max-width: 100%;"
     >
@@ -322,7 +322,7 @@ python app.py</code></pre>
         Khi nhấn vào <em>Course</em>, giao diện các khóa học sẽ hiển thị.
         <br>
         <img 
-          src="https://raw.githubusercontent.com/Namtk214/Multidimensional-Computerized-Adaptive-Testing/main/image/%E1%BA%A2nh%20ch%E1%BB%A5p%20m%C3%A0n%20h%C3%ACnh%202025-04-13%20021027.png" 
+          src="https://raw.githubusercontent.com/Namtk214/Collaborative-Computerized-Adaptive-Testing/main/image/%E1%BA%A2nh%20ch%E1%BB%A5p%20m%C3%A0n%20h%C3%ACnh%202025-04-13%20021027.png" 
           alt="Ảnh 2: Giao diện danh sách khóa học" 
           style="max-width: 100%;"
         >
@@ -331,13 +331,13 @@ python app.py</code></pre>
         Khi chọn một khóa học, bạn sẽ được chuyển đến trang hiển thị video bài giảng và chatbot hỗ trợ.
         <br>
         <img 
-          src="https://raw.githubusercontent.com/Namtk214/Multidimensional-Computerized-Adaptive-Testing/main/%E1%BA%A2nh%20video.png" 
+          src="https://raw.githubusercontent.com/Namtk214/Collaborative-Computerized-Adaptive-Testing/main/%E1%BA%A2nh%20video.png" 
           alt="Ảnh 3: Video bài giảng" 
           style="max-width: 100%;"
         >
         <br>
         <img 
-          src="https://raw.githubusercontent.com/Namtk214/Multidimensional-Computerized-Adaptive-Testing/main/AI.png" 
+          src="https://raw.githubusercontent.com/Namtk214/Collaborative-Computerized-Adaptive-Testing/main/AI.png" 
           alt="Ảnh 4: Chatbot hỗ trợ" 
           style="max-width: 100%;"
         >
@@ -350,7 +350,7 @@ python app.py</code></pre>
     Khi bấm vào dashboard, giao diện sẽ hiển thị như hình bên dưới:
     <br>
     <img 
-      src="https://raw.githubusercontent.com/Namtk214/Multidimensional-Computerized-Adaptive-Testing/main/%E1%BA%A2nh%20ch%E1%BB%A5p%20m%C3%A0n%20h%C3%ACnh%202025-04-13%20025605.png" 
+      src="https://raw.githubusercontent.com/Namtk214/Collaborative-Computerized-Adaptive-Testing/main/%E1%BA%A2nh%20ch%E1%BB%A5p%20m%C3%A0n%20h%C3%ACnh%202025-04-13%20025605.png" 
       alt="Ảnh 5: Giao diện dashboard" 
       style="max-width: 100%;"
     >
@@ -363,7 +363,7 @@ python app.py</code></pre>
     - Biểu đồ phân phối chuẩn: thể hiện điểm số của học sinh đó so với các 'anchor student' đã được hệ thống thu thập trước đó.
     <br>
     <img 
-      src="https://raw.githubusercontent.com/Namtk214/Multidimensional-Computerized-Adaptive-Testing/main/b%C3%A0i%20l%C3%A0m.png" 
+      src="https://raw.githubusercontent.com/Namtk214/Collaborative-Computerized-Adaptive-Testing/main/b%C3%A0i%20l%C3%A0m.png" 
       alt="Ảnh 6: Giao diện bài test đánh giá năng lực" 
       style="max-width: 100%;"
     >
