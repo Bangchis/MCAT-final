@@ -1,31 +1,64 @@
-version: "3.8"
-
 services:
-  r_service:
-    build: ./src/r_service
+  # R Service (Plumber API)
+  r-service:
+    build:
+      context: ./src/r_service
+      dockerfile: Dockerfile
+    container_name: mhcat-r-service
     ports:
       - "8000:8000"
-    # mount toàn bộ data vào /data bên trong container
     volumes:
-      - ./data:/data:ro
+      - ./data:/app/data:ro # Mount data as read-only
+      - ./src/r_service/item_history.json:/app/item_history.json # For session storage
+    environment:
+      - R_LIBS_USER=/usr/local/lib/R/site-library
+    networks:
+      - mhcat-network
+    restart: unless-stopped
 
+  # Python Backend (Flask Proxy)
   backend:
-    build: ./src/backend
+    build:
+      context: ./src/backend
+      dockerfile: Dockerfile
+    container_name: mhcat-backend
     ports:
       - "5000:5000"
-    depends_on:
-      - r_service
-    # mount data vào cùng vị trí /data để Flask serve hình ảnh và đọc CSV
     volumes:
-      - ./data:/data:ro
+      - ./data:/app/data:ro # Mount data as read-only
     environment:
-      # trỏ tới service r_service trong network của compose
-      - PLUMBER_URL=http://r_service:8000
-      - FLASK_ENV=development
+      - PLUMBER_URL=http://r-service:8000
+      - FLASK_ENV=production
+      - FLASK_DEBUG=0
+    depends_on:
+      - r-service
+    networks:
+      - mhcat-network
+    restart: unless-stopped
 
+  # Frontend (React)
   frontend:
-    build: ./frontend
+    build:
+      context: ./frontend
+      dockerfile: Dockerfile
+    container_name: mhcat-frontend
     ports:
-      - "3000:80"
+      - "3000:3000"
+    environment:
+      - REACT_APP_API_URL=http://localhost:5000
+      - CHOKIDAR_USEPOLLING=true # For file watching in Docker
     depends_on:
       - backend
+    networks:
+      - mhcat-network
+    restart: unless-stopped
+    stdin_open: true # Keep container running
+    tty: true
+
+networks:
+  mhcat-network:
+    driver: bridge
+
+volumes:
+  data:
+    driver: local
