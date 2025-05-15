@@ -43,7 +43,7 @@ services:
       dockerfile: Dockerfile
     container_name: mhcat-frontend
     ports:
-      - "3000:3000"
+      - "80:80"
     environment:
       - REACT_APP_API_URL=http://localhost:5000
       - CHOKIDAR_USEPOLLING=true # For file watching in Docker
@@ -62,3 +62,35 @@ networks:
 volumes:
   data:
     driver: local
+
+# version: "3.8"
+
+# services:
+#   r_service:
+#     build: ./src/r_service
+#     ports:
+#       - "8000:8000"
+#     # mount toàn bộ data vào /data bên trong container
+#     volumes:
+#       - ./data:/data:ro
+
+#   backend:
+#     build: ./src/backend
+#     ports:
+#       - "5000:5000"
+#     depends_on:
+#       - r_service
+#     # mount data vào cùng vị trí /data để Flask serve hình ảnh và đọc CSV
+#     volumes:
+#       - ./data:/data:ro
+#     environment:
+#       # trỏ tới service r_service trong network của compose
+#       - PLUMBER_URL=http://r_service:8000
+#       - FLASK_ENV=development
+
+#   frontend:
+#     build: ./frontend
+#     ports:
+#       - "3000:80"
+#     depends_on:
+#       - backend

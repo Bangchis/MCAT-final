@@ -7,9 +7,21 @@ import './App.css';
 function App() {
     const [currentPage, setCurrentPage] = useState('start');
     const [quizResult, setQuizResult] = useState(null);
+    const [quizSession, setQuizSession] = useState(null); // NEW: Lưu dữ liệu khởi tạo quiz
 
-    const handleStart = () => {
-        setCurrentPage('quiz');
+    const handleStart = async () => {
+        try {
+            const response = await fetch(`${process.env.REACT_APP_API_URL || 'http://backend:5000'}/start`);
+            if (!response.ok) throw new Error('API /start trả về lỗi');
+
+            const data = await response.json();
+            console.log('Quiz session started:', data);
+            setQuizSession(data); // Lưu session nếu QuizPage cần
+            setCurrentPage('quiz');
+        } catch (err) {
+            alert('Failed to start quiz. Please check if the API is running.');
+            console.error(err);
+        }
     };
 
     const handleFinish = (result) => {
@@ -20,6 +32,7 @@ function App() {
 
     const handleRestart = () => {
         setQuizResult(null);
+        setQuizSession(null);
         setCurrentPage('start');
     };
 
@@ -63,7 +76,7 @@ function App() {
 
             <main className="App-main">
                 {currentPage === 'start' && <StartPage onStart={handleStart} />}
-                {currentPage === 'quiz' && <QuizPage onFinish={handleFinish} />}
+                {currentPage === 'quiz' && <QuizPage onFinish={handleFinish} session={quizSession} />}
                 {currentPage === 'results' && <ResultsPage result={quizResult} />}
             </main>
 

@@ -15,6 +15,8 @@ import {
 import { Radar, Bar, Line } from 'react-chartjs-2';
 import './ResultsPage.css';
 
+const API_URL = process.env.REACT_APP_API_URL || '';
+
 // Register chart components
 ChartJS.register(
     RadialLinearScale,
@@ -685,7 +687,7 @@ export function ResultsPage({ result }) {
                                                 >
                                                     <div className="question-image-container">
                                                         <img
-                                                            src={imagePath}
+                                                            src={`${API_URL}/images/${q.qid}.jpg`}
                                                             alt={`Question ${q.qid}`}
                                                             className={`question-image-interactive ${q.isCorrect ? 'correct' : 'incorrect'}`}
                                                             onClick={() => handleQuestionClick(q)}
@@ -739,7 +741,7 @@ export function ResultsPage({ result }) {
                             <div className="modal-body">
                                 <div className="modal-image-section">
                                     <img
-                                        src={`/images/${selectedQuestion.qid}.jpg`}
+                                        src={`${API_URL}/images/${selectedQuestion.qid}.jpg`}
                                         alt="question"
                                         className="modal-question-image"
                                     />
