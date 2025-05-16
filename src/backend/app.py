@@ -175,84 +175,103 @@ CORS(app)
 # --- Endpoints ---
 @app.route('/start', methods=['GET'])
 def start_test():
-    theta0 = request.args.get('theta0', None)
-    payload = {}
-    if theta0:
-        try:
-            payload['theta0'] = [float(x.strip()) for x in theta0.split(',')]
-        except ValueError:
-            logger.warning(f"Invalid theta0: {theta0}")
-
+    """
+    Forward GET /start to Plumber POST /start.
+    """
     try:
-        resp = plumber_session.post(
-            f"{PLUMBER_URL}/start",
-            json=payload,
-            timeout=REQUEST_TIMEOUT
-        )
-        return jsonify(resp.json()), resp.status_code
+        theta0 = request.args.get('theta0')
+        payload = {}
+        if theta0:
+            try:
+                payload['theta0'] = [float(x.strip()) for x in theta0.split(',')]
+            except ValueError:
+                logger.warning(f"Invalid theta0 format: {theta0}")
+
+        # Gọi Plumber và bắt mọi lỗi
+        try:
+            resp = requests.post(f"{PLUMBER_URL}/start", json=payload, timeout=10)
+            resp.raise_for_status()
+            data = resp.json()
+            return jsonify(data), resp.status_code
+        except requests.RequestException as e:
+            logger.error(f"/start → Plumber error: {e}")
+            # Trả về JSON error chứ không ném 502
+            return jsonify({'error': 'Plumber API unavailable'}), 200
+
     except requests.RequestException as e:
-        logger.error(f"/start → Plumber error: {e}")
-        return jsonify({'error': 'API connection failed'}), 502
+        logger.error(f"Error connecting to Plumber API: {e}")
+        return jsonify({'error': 'API connection failed'}), 500
+
 
 @app.route('/next', methods=['POST'])
 def next_item():
-    data = request.get_json(force=True)
-    logger.info(f">>> /next received: {data}")
-
-    # normalize
-    sid = data.get('session_id')
-    idx = data.get('item_index')
-    ans = data.get('answer')
-    elapsed_t = data.get('elapsed_time', 0)
-
-    # unwrap lists
-    if isinstance(sid, list): sid = sid[0]
-    if isinstance(idx, list): idx = idx[0]
-    if isinstance(ans, list): ans = ans[0]
-
-    # letter→number
-    if isinstance(ans, str) and ans.upper() in ['A','B','C','D']:
-        ans = ord(ans.upper()) - ord('A') + 1
-
+    """
+    Forward POST /next to Plumber /next.
+    """
     try:
+        data = request.get_json(force=True)
+        logger.info(f">>> Flask /next received: {data}")
+
+        # Chuẩn hoá các tham số
+        sid       = data.get('session_id')
+        idx       = data.get('item_index')
+        answer    = data.get('answer')
+        elapsed_t = data.get('elapsed_time', 0)
+        if isinstance(sid, list):    sid = sid[0]
+        if isinstance(idx, list):    idx = idx[0]
+        if isinstance(answer, list): answer = answer[0]
+        if isinstance(answer, str) and answer.upper() in ['A','B','C','D']:
+            answer = ord(answer.upper()) - ord('A') + 1
+
         payload = {
-            'session_id':    str(sid),
-            'item_index':    int(idx),
-            'answer':        int(ans),
-            'elapsed_time':  float(elapsed_t)
+            'session_id':   sid,
+            'item_index':   int(idx),
+            'answer':       int(answer),
+            'elapsed_time': float(elapsed_t)
         }
-    except (TypeError, ValueError) as e:
-        logger.error(f"Invalid payload: {e}")
-        return jsonify({'error': 'Bad request'}), 400
 
-    try:
-        resp = plumber_session.post(
-            f"{PLUMBER_URL}/next",
-            json=payload,
-            timeout=REQUEST_TIMEOUT
-        )
-        data = resp.json()
-        logger.info(f">>> Plumber response: {data}")
-        return jsonify(data), resp.status_code
+        # Gọi Plumber và bắt mọi lỗi
+        try:
+            resp = requests.post(f"{PLUMBER_URL}/next", json=payload, timeout=10)
+            resp.raise_for_status()
+            data = resp.json()
+            logger.info(f">>> Plumber response: {data}")
+            return jsonify(data), resp.status_code
+        except requests.RequestException as e:
+            logger.error(f"/next → Plumber error: {e}")
+            # Trả về JSON error và HTTP 200 để front‐end còn parse được
+            return jsonify({'error': 'Plumber API unavailable, please try again'}), 200
+
+    except KeyError as e:
+        logger.error(f"Missing required field: {e}")
+        return jsonify({'error': f'Missing field {e}'}), 400
     except requests.RequestException as e:
-        logger.error(f"/next → Plumber error: {e}")
-        return jsonify({'error': 'API connection failed'}), 502
+        logger.error(f"Error connecting to Plumber API: {e}")
+        return jsonify({'error': 'API connection failed'}), 500
+
 
 @app.route('/session-end', methods=['POST'])
 def session_end():
-    data = request.get_json(force=True)
-    logger.info(f">>> /session-end received: {data}")
-
+    """
+    Forward POST /session-end to Plumber /session-end.
+    """
     try:
-        resp = plumber_session.post(
-            f"{PLUMBER_URL}/session-end",
-            json=data,
-            timeout=REQUEST_TIMEOUT
-        )
-        return jsonify(resp.json()), resp.status_code
+        data = request.get_json(force=True)
+        logger.info(f">>> Flask /session-end received: {data}")
+
+        try:
+            resp = requests.post(f"{PLUMBER_URL}/session-end", json=data, timeout=10)
+            resp.raise_for_status()
+            return jsonify(resp.json()), resp.status_code
+        except requests.RequestException as e:
+            logger.error(f"/session-end → Plumber error: {e}")
+            # Vẫn trả success để UI không kẹt
+            return jsonify({'status': 'error', 'message': 'Plumber API unavailable'}), 200
+
     except requests.RequestException as e:
-        logger.error(f"/session-end → Plumber error: {e}")
-        return jsonify({'error': 'API connection failed'}), 502
+        logger.error(f"Error connecting to Plumber API: {e}")
+        return jsonify({'error': 'API connection failed'}), 500
+
 
 @app.route('/images/<path:filename>')
 def serve_images(filename):

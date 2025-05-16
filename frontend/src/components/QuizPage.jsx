@@ -345,6 +345,10 @@ export function QuizPage({ onFinish, session }) {
           return res.json();
         })
         .then((data) => {
+          if(data.error) {
+            alert(data.error);
+            return;
+          }
           console.log('>>> Initial item received:', data);
           setItem(parseItem(data));
         })
@@ -415,6 +419,11 @@ export function QuizPage({ onFinish, session }) {
       if (!res.ok) throw new Error(`HTTP ${res.status}`);
       const data = await res.json();
       console.log('>>> Raw /next response:', data);
+      // Nếu backend trả JSON { error: … }
+      if (data.error) {
+        alert(data.error);
+        return;
+      }
 
       // unwrap finished
       const fin = Array.isArray(data.finished) ? data.finished[0] : data.finished;
