@@ -10,6 +10,14 @@ function(pr) {
   pr %>% plumber::serializer_unboxed_json()
 }
 
+# ---- Health Check Endpoint ----------------------------------------------
+#* Simple health check for Flask proxy
+#* @get /
+function(req, res) {
+  res$status <- 200
+  list(status = "ok")
+}
+
 # ---- Enhanced Configuration ------------------------------------------------
 MHCAT_CONFIG <- list(
   structure = c(1, 2),  # 2 stages: 1 panel -> 2 panels
@@ -25,7 +33,7 @@ ITEM_HISTORY_FILE <- "item_history.json"
 
 # ---- Load Model & Data -----------------------------------------------------
 tryCatch({
-  mod <- readRDS("../../data/irt_params/mirt_model.rds")
+  mod <- readRDS("data/irt_params/mirt_model.rds")
   
   # Get number of dimensions with better error handling
   if (!is.null(mod@Model) && !is.null(mod@Model$nfact)) {
@@ -42,13 +50,13 @@ tryCatch({
   
 }, error = function(e) {
   message("Error loading model: ", e$message)
-  mod <- readRDS("../../data/irt_params/mirt_model.rds")
+  mod <- readRDS("data/irt_params/mirt_model.rds")
   n_dim <- 4  # Fallback
   message("Using fallback n_dim = 4")
 })
 
 # Load metadata
-meta_df <- read.csv("../../data/metadata/result_final.csv", stringsAsFactors = FALSE)
+meta_df <- read.csv("data/metadata/result_final.csv", stringsAsFactors = FALSE)
 
 # Safe access to model data
 tryCatch({

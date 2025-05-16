@@ -1,0 +1,70 @@
+e
+.
+├── cau_truc.txt
+├── data
+│   ├── check.csv
+│   ├── images
+│   │   ├── 0.jpg
+|   |   ...
+│   │   └── 9.jpg
+│   ├── irt_params
+│   │   └── mirt_model.rds
+│   ├── metadata
+│   │   └── result_final.csv
+│   ├── responses_neurips.csv
+│   ├── thong_ke_so_luong_khac_rong.csv
+│   └── train_task_3_4.csv
+├── docker-compose.yml
+├── frontend
+│   ├── Dockerfile
+│   ├── package.json
+│   ├── package-lock.json
+│   ├── public
+│   │   ├── favicon.ico
+│   │   ├── index.html
+│   │   ├── logo192.png
+│   │   ├── logo512.png
+│   │   ├── manifest.json
+│   │   └── robots.txt
+│   ├── README.md
+│   └── src
+│       ├── App.css
+│       ├── App.js
+│       ├── App.jsx
+│       ├── App.test.js
+│       ├── components
+│       │   ├── QuizPage.jsx
+│       │   ├── ResultsPage.css
+│       │   ├── ResultsPage.jsx
+│       │   ├── StartPage.css
+│       │   └── StartPage.jsx
+│       ├── index.css
+│       ├── index.js
+│       ├── logo.svg
+│       ├── reportWebVitals.js
+│       └── setupTests.js
+├── README.md
+├── requirements.txt
+├── src
+│   ├── ai_modules
+│   │   ├── best.pt
+│   │   ├── out.jpg
+│   │   ├── pipeline.py
+│   │   └── sample_input.jpg
+│   ├── backend
+│   │   ├── app.py
+│   │   ├── Dockerfile
+│   │   └── requirements.txt
+│   ├── calibration
+│   │   └── calibrate_model.R
+│   └── r_service
+│       ├── api.R
+│       ├── Dockerfile
+│       ├── item_history.json
+│       └── sess@theta
+├── start_all.sh
+└── structure.txt
+
+
+docker-compose -f docker-compose.prod.yml pull
+docker-compose -f docker-compose.prod.yml up -d

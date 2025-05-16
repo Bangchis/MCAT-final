@@ -5,7 +5,7 @@ services:
     build:
       context: ./src/r_service
       dockerfile: Dockerfile
-    container_name: mhcat-r-service
+    container_name: codemaivanngu/mhcat-r-service:latest
     ports:
       - "8000:8000"
     volumes:
@@ -22,7 +22,7 @@ services:
     build:
       context: ./src/backend
       dockerfile: Dockerfile
-    container_name: mhcat-backend
+    container_name: codemaivanngu/mhcat-backend:latest
     ports:
       - "5000:5000"
     volumes:
@@ -42,7 +42,7 @@ services:
     build:
       context: ./frontend
       dockerfile: Dockerfile
-    container_name: mhcat-frontend
+    container_name: codemaivanngu/mhcat-frontend:latest
     ports:
       - "80:80"
     environment:

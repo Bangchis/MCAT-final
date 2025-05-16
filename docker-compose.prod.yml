@@ -1,32 +1,26 @@
 version: "3.8"
 services:
-  # R Service (Plumber API)
   r-service:
-    build:
-      context: ./src/r_service
-      dockerfile: Dockerfile
+    image: codemaivanngu/mhcat-r-service:latest
     container_name: mhcat-r-service
     ports:
       - "8000:8000"
     volumes:
-      - ./data:/app/data:ro # Mount data as read-only
-      - ./src/r_service/item_history.json:/app/item_history.json # For session storage
+      - ./data:/app/data:ro
+      - ./src/r_service/item_history.json:/app/item_history.json
     environment:
       - R_LIBS_USER=/usr/local/lib/R/site-library
     networks:
       - mhcat-network
     restart: unless-stopped
 
-  # Python Backend (Flask Proxy)
   backend:
-    build:
-      context: ./src/backend
-      dockerfile: Dockerfile
+    image: codemaivanngu/mhcat-backend:latest
     container_name: mhcat-backend
     ports:
       - "5000:5000"
     volumes:
-      - ./data:/app/data:ro # Mount data as read-only
+      - ./data:/app/data:ro
     environment:
       - PLUMBER_URL=http://r-service:8000
       - FLASK_ENV=production
@@ -37,29 +31,22 @@ services:
       - mhcat-network
     restart: unless-stopped
 
-  # Frontend (React)
   frontend:
-    build:
-      context: ./frontend
-      dockerfile: Dockerfile
+    image: codemaivanngu/mhcat-frontend:latest
     container_name: mhcat-frontend
     ports:
       - "80:80"
     environment:
       - REACT_APP_API_URL=http://backend:5000
-      - CHOKIDAR_USEPOLLING=true # For file watching in Docker
+      - CHOKIDAR_USEPOLLING=true
     depends_on:
       - backend
     networks:
       - mhcat-network
     restart: unless-stopped
-    stdin_open: true # Keep container running
+    stdin_open: true
     tty: true
 
 networks:
   mhcat-network:
     driver: bridge
-
-volumes:
-  data:
-    driver: local
