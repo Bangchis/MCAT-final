@@ -1,0 +1,52 @@
+version: "3.8"
+services:
+  r-service:
+    image: codemaivanngu/mhcat-r-service:latest
+    container_name: mhcat-r-service
+    ports:
+      - "8000:8000"
+    volumes:
+      - ./data:/app/data:ro
+      - ./src/r_service/item_history.json:/app/item_history.json
+    environment:
+      - R_LIBS_USER=/usr/local/lib/R/site-library
+    networks:
+      - mhcat-network
+    restart: unless-stopped
+
+  backend:
+    image: codemaivanngu/mhcat-backend:latest
+    container_name: mhcat-backend
+    ports:
+      - "5000:5000"
+    volumes:
+      - ./data:/app/data:ro
+    environment:
+      - PLUMBER_URL=http://r-service:8000
+      - FLASK_ENV=production
+      - FLASK_DEBUG=0
+    depends_on:
+      - r-service
+    networks:
+      - mhcat-network
+    restart: unless-stopped
+
+  frontend:
+    image: codemaivanngu/mhcat-frontend:latest
+    container_name: mhcat-frontend
+    ports:
+      - "80:80"
+    environment:
+      - REACT_APP_API_URL=http://localhost:5000
+      - CHOKIDAR_USEPOLLING=true
+    depends_on:
+      - backend
+    networks:
+      - mhcat-network
+    restart: unless-stopped
+    stdin_open: true
+    tty: true
+
+networks:
+  mhcat-network:
+    driver: bridge
