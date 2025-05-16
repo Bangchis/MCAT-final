@@ -1,11 +1,11 @@
 name: Build and Push Docker Images
 
 on:
-  [workflow_dispatch]
-    # push:
-    #     branches: [ "maintung" ]
-    # pull_request:
-    #     branches: [ "maintung" ]
+  # [workflow_dispatch]
+    push:
+        branches: [ "maintung" ]
+    pull_request:
+        branches: [ "maintung" ]
 
 
 jobs:
