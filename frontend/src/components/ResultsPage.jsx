@@ -39,6 +39,10 @@ export function ResultsPage({ result }) {
     const [showQuestionModal, setShowQuestionModal] = useState(false);
     const [imagesLoaded, setImagesLoaded] = useState(new Set());
     const [questionCardsVisible, setQuestionCardsVisible] = useState(false);
+    useEffect(() => {
+        console.log('🔍 result payload:', result);
+    }, [result]);
+
 
     useEffect(() => {
         setIsLoaded(true);
@@ -656,80 +660,98 @@ export function ResultsPage({ result }) {
                 </div>
 
                 {/* Detailed Question Analysis - FIXED SECTION */}
+               {/* Detailed Question Analysis */}
                 {showQuestionDetails && (
-                    <div className="question-details slide-up">
-                        <h3>📋 Detailed Question Analysis</h3>
+                <div className="question-details slide-up">
+                    <h3>📋 Detailed Question Analysis</h3>
 
-                        {Object.entries(stats.subjectStats).map(([subjectId, stat]) => {
-                            const subjectInfo = stats.subjectNames[subjectId] || { name: `Subject ${subjectId}`, icon: '📝', color: '#6B7280' };
+                    {Object.entries(stats.subjectStats).map(([subjectId, stat]) => {
+                    const subjectInfo = stats.subjectNames[subjectId] || {
+                        name: `Subject ${subjectId}`,
+                        icon: '📝',
+                        color: '#6B7280'
+                    };
+
+                    return (
+                        <div key={subjectId} className="question-subject-group">
+                        <h4 className="subject-group-header">
+                            <span className="subject-icon">{subjectInfo.icon}</span>
+                            {subjectInfo.name} ({stat.accuracy}% correct) – {stat.questions.length} questions
+                        </h4>
+
+                        <div className="question-flexbox">
+                            {stat.questions.map((q, idx) => {
+                            const imageUrl = `${API_URL}/images/${q.qid}.jpg`;
+
+                            // Debug: log exactly what URL we're requesting
+                            console.log('🐞 Rendering result image:', {
+                                subject: subjectId,
+                                index: idx,
+                                qid: q.qid,
+                                url: imageUrl
+                            });
 
                             return (
-                                <div key={subjectId} className="question-subject-group">
-                                    <h4 className="subject-group-header">
-                                        <span className="subject-icon">{subjectInfo.icon}</span>
-                                        {subjectInfo.name} ({stat.accuracy}% correct) - {stat.questions.length} questions
-                                    </h4>
+                                <div
+                                key={`${subjectId}-${idx}`}
+                                className={`question-card-flex ${questionCardsVisible ? 'visible' : ''}`}
+                                style={{
+                                    animationDelay: `${idx * 0.1}s`,
+                                    opacity: questionCardsVisible ? 1 : 0,
+                                    transform: questionCardsVisible
+                                    ? 'translateY(0)'
+                                    : 'translateY(20px)',
+                                    transition: 'all 0.6s ease-out'
+                                }}
+                                >
+                                <div className="question-image-container">
+                                    <img
+                                    src={imageUrl}
+                                    alt={`Question ${q.qid}`}
+                                    className={`question-image-interactive ${
+                                        q.isCorrect ? 'correct' : 'incorrect'
+                                    }`}
+                                    onClick={() => handleQuestionClick(q)}
+                                    onError={(e) => handleImageError(e, q.qid)}
+                                    onLoad={() => handleImageLoad(q.qid)}
+                                    style={{ display: 'block' }}
+                                    />
 
-                                    {/* Fixed Flexbox container for questions */}
-                                    <div className="question-flexbox">
-                                        {stat.questions.map((q, idx) => {
-                                            const imagePath = `/images/${q.qid}.jpg`;
+                                    {/* placeholder & overlay unchanged */}
+                                    <div
+                                    className="image-placeholder-flex"
+                                    style={{ display: 'none', cursor: 'pointer' }}
+                                    onClick={() => handleQuestionClick(q)}
+                                    >
+                                    <span style={{ fontSize: '2rem' }}>📷</span>
+                                    <p style={{ margin: '0.5rem 0', fontSize: '14px', fontWeight: 'bold' }}>
+                                        Question {q.qid}
+                                    </p>
+                                    <p style={{ margin: 0, fontSize: '12px', color: '#666' }}>
+                                        {q.isCorrect ? '✅ Correct' : '❌ Incorrect'}
+                                    </p>
+                                    <p style={{ margin: '0.25rem 0', fontSize: '11px', color: '#999' }}>
+                                        Your answer: {q.userAnswer} | Correct: {q.correctAnswer}
+                                    </p>
+                                    </div>
 
-                                            return (
-                                                <div
-                                                    key={`${subjectId}-${idx}`}
-                                                    className={`question-card-flex ${questionCardsVisible ? 'visible' : ''}`}
-                                                    style={{
-                                                        animationDelay: `${idx * 0.1}s`,
-                                                        opacity: questionCardsVisible ? 1 : 0,
-                                                        transform: questionCardsVisible ? 'translateY(0)' : 'translateY(20px)',
-                                                        transition: 'all 0.6s ease-out'
-                                                    }}
-                                                >
-                                                    <div className="question-image-container">
-                                                        <img
-                                                            src={`${API_URL}/images/${q.qid}.jpg`}
-                                                            alt={`Question ${q.qid}`}
-                                                            className={`question-image-interactive ${q.isCorrect ? 'correct' : 'incorrect'}`}
-                                                            onClick={() => handleQuestionClick(q)}
-                                                            onError={(e) => handleImageError(e, q.qid)}
-                                                            onLoad={() => handleImageLoad(q.qid)}
-                                                            style={{ display: 'block' }}
-                                                        />
-                                                        <div
-                                                            className="image-placeholder-flex"
-                                                            style={{
-                                                                display: 'none',
-                                                                cursor: 'pointer'
-                                                            }}
-                                                            onClick={() => handleQuestionClick(q)}
-                                                        >
-                                                            <span style={{ fontSize: '2rem' }}>📷</span>
-                                                            <p style={{ margin: '0.5rem 0', fontSize: '14px', fontWeight: 'bold' }}>
-                                                                Question {q.qid}
-                                                            </p>
-                                                            <p style={{ margin: 0, fontSize: '12px', color: '#666' }}>
-                                                                {q.isCorrect ? '✅ Correct' : '❌ Incorrect'}
-                                                            </p>
-                                                            <p style={{ margin: '0.25rem 0', fontSize: '11px', color: '#999' }}>
-                                                                Your answer: {q.userAnswer} | Correct: {q.correctAnswer}
-                                                            </p>
-                                                        </div>
-                                                        <div className={`question-status-overlay ${q.isCorrect ? 'correct' : 'incorrect'}`}>
-                                                            <span className="status-icon-overlay">
-                                                                {q.isCorrect ? '✓' : '✗'}
-                                                            </span>
-                                                        </div>
-                                                    </div>
-                                                </div>
-                                            );
-                                        })}
+                                    <div className={`question-status-overlay ${q.isCorrect ? 'correct' : 'incorrect'}`}>
+                                    <span className="status-icon-overlay">
+                                        {q.isCorrect ? '✓' : '✗'}
+                                    </span>
                                     </div>
                                 </div>
+                                </div>
                             );
-                        })}
-                    </div>
+                            })}
+                        </div>
+                        </div>
+                    );
+                    })}
+                </div>
                 )}
+
+
 
                 {/* Enhanced Question Detail Modal */}
                 {showQuestionModal && selectedQuestion && (
