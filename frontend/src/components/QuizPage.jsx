@@ -1,7 +1,11 @@
 import React, { useState, useEffect } from 'react';
 
 // Use full URL for API; fallback to localhost proxy
-const API_URL = process.env.REACT_APP_API_URL || 'http://backend:5000';
+// const API_URL = process.env.REACT_APP_API_URL || 'http://backend:5000';
+// src/components/QuizPage.jsx (hoặc nơi bạn định nghĩa API_URL)
+const API_URL = process.env.NODE_ENV === 'production'
+  ? ''                         // production: dùng đường dẫn relative
+  : process.env.REACT_APP_API_URL; // dev: vẫn có thể cắm localhost
 
 export function QuizPage({ onFinish, session }) {
   const [item, setItem] = useState(null);
