@@ -1,7 +1,7 @@
 import React, { useState, useEffect } from 'react';
 
 // Use full URL for API; fallback to localhost proxy
-const API_URL = process.env.REACT_APP_API_URL || 'http://localhost:5000';
+const API_URL = process.env.REACT_APP_API_URL || 'http://backend:5000';
 
 export function QuizPage({ onFinish, session }) {
   const [item, setItem] = useState(null);

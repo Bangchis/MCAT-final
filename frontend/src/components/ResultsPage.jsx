@@ -15,7 +15,7 @@ import {
 import { Radar, Bar, Line } from 'react-chartjs-2';
 import './ResultsPage.css';
 
-const API_URL = process.env.REACT_APP_API_URL || 'http://localhost:5000';
+const API_URL = process.env.REACT_APP_API_URL || 'http://backend:5000';
 
 // Register chart components
 ChartJS.register(
